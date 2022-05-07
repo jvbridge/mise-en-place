@@ -1,3 +1,4 @@
 const Users = require("./users");
+const Events = requre("./events");
 
-module.exports = { Users };
+module.exports = { Users, Events };
