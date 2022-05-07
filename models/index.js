@@ -1,6 +1,6 @@
 const Users = require("./users");
 const Events = require("./events");
-const recurringPatterns = require("./recurring-patterns");
+const RecurringPatterns = require("./recurring-patterns");
 
 Users.hasMany(Events, {
   foreignKey: "user_id",
@@ -12,8 +12,8 @@ Events.belongsTo(Users, {
 });
 
 // TODO: how does onDelete work with this, we need it to cascade to it
-recurringPatterns.belongsTo(Events, {
+RecurringPatterns.belongsTo(Events, {
   foreignKey: "event_id",
 });
 
-module.exports = { Users, Events, recurringPatterns };
+module.exports = { Users, Events, RecurringPatterns };
