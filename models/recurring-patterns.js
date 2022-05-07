@@ -4,9 +4,9 @@ const sequelize = require("../config/connection");
 /**
  * recurringPatterns allow us to store the pattern for an event the re-occurs.
  */
-class recurringPatterns extends Model {}
+class RecurringPatterns extends Model {}
 
-recurringPatterns.init(
+RecurringPatterns.init(
   {
     // primary key
     id: {
@@ -110,4 +110,4 @@ recurringPatterns.init(
   }
 );
 
-module.exports = recurringPatterns;
+module.exports = RecurringPatterns;
