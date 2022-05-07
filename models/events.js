@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, Datatypes: DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 /**
@@ -16,48 +16,48 @@ Events.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    // forign key to reference the user that made it
     user_id: {
-      // forign key to reference the user that made it
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: "users",
         key: "id",
       },
     },
+    // the name the user gave to the event
     title: {
-      // the name the user gave to the event
-      type: Datatypes.STRING, // 255 character max
+      type: DataTypes.STRING, // 255 character max
       allowNull: false,
     },
+    // optional description
     description: {
-      // optional description
-      type: Datatypes.TEXT,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     start_date: {
       // TODO: Should this ever be null? Why would it be null?
-      type: Datatypes.DATE,
+      type: DataTypes.DATE,
     },
+    // if it's null the event ends on the same day it started
     end_date: {
-      // end date: if it's null the event ends on the same day it started
-      type: Datatypes.DATE,
+      type: DataTypes.DATE,
       allowNull: true,
     },
+    // can be null for all day events
     start_time: {
-      // start time, can be null for all day events
-      type: Datatypes.TIME,
+      type: DataTypes.TIME,
     },
+    // if null the event is a reminder type event
     end_time: {
-      // end time, if null the event is a reminder type event
-      type: Datatypes.TIME,
+      type: DataTypes.TIME,
     },
     is_full_day: {
-      type: Datatypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
     },
+    /* if this is recurring then we expect an entry on the recurring-pattern
+     * table */
     is_recurring: {
-      // if this is recurring then we expect an entry on the recurring-pattern
-      //table
-      type: Datatypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
     },
   },
   {
