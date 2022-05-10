@@ -66,6 +66,29 @@ router.get('/upcoming', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
+router.get('repeated', async (req, res) => {
+    try {
+        const eventData = await Events.findAll({
+            include: [
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        });
+        const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
+
+        res.render('repeated', {
+            repeatedEvents,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
