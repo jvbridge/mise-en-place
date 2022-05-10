@@ -26,7 +26,7 @@ router.get('/calendar', async (req, res) => {
 //Route to get and render a single event by ID
 router.get('event/:id', async (req, res) => {
     try {
-        const eventData = await Events.findAll ({
+        const eventData = await Events.findByPk(req.params.id, {
             include :[
                 {
                     model: Users,
@@ -67,6 +67,8 @@ router.get('/upcoming', async (req, res) => {
     }
 });
 
+// Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
+router.get('upcoming/:id', async (req,res))
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
 router.get('repeated', async (req, res) => {
     try {
