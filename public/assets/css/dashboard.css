@@ -1,32 +1,46 @@
 nav {
-    background-color: rgb(255, 198, 207);
+  background-color: rgb(255, 198, 207);
 }
 
 a:link {
-    color: black;
+  color: black;
 }
 
 header {
-    padding: 1em;
-    color: darkgrey;
+  padding: 1em;
+  color: darkgrey;
 }
 
 h6 {
-    margin-top: 8px;
+  margin-top: 8px;
+}
+
+.main-header {
+  background-color: rgb(255, 198, 207);
 }
 
 .day-card {
-    background-color: white;
+  background-color: white;
 }
 
-.card-header {
-    background-color: rgb(255, 198, 207);
+.to-do-card-header {
+  /* background-color: lightgreen; */
+  background-color: rgb(255, 198, 207);
 }
 
 .to-do-card {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
-#postit {
-    margin-left: 4em;
+.missed-card {
+  margin-bottom: 2em;
+}
+
+.missed-card-header {
+  /* background-color: lightcoral; */
+  background-color: rgb(255, 198, 207);
+}
+
+.missed-item {
+  background-color: rgb(238, 238, 238);
 }

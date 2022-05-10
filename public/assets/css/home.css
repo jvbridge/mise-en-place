@@ -20,7 +20,7 @@ body {
 
 .btn {
     /* background-color: rgb(252, 156, 82); */
-    background-color: rgb(140, 247, 255);
+    background-color: lightcoral;
     color: black;
     border: none;
     border-radius: 5px;
@@ -31,15 +31,23 @@ body {
     font-weight: bold;
 }
 
+.btn:hover {
+    background-color: lightsalmon;
+}
+
+p {
+    font-size: 1em;
+}
+
 img {
     margin-top: 1em;
     margin-bottom: 2.5em;
 }
 
-.postit {
-    justify-content: center;
+.modal-header {
+    background-color: rgb(255, 198, 207)
 }
 
-span {
-    text-align: center;
+label {
+    font-weight: bold;
 }
