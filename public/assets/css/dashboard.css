@@ -32,6 +32,10 @@ h6 {
   margin-bottom: 2em;
 }
 
+/* .to-do-item {
+    background-color: rgb(160, 255, 160);
+} */
+
 .missed-card {
   margin-bottom: 2em;
 }
@@ -43,4 +47,7 @@ h6 {
 
 .missed-item {
   background-color: rgb(238, 238, 238);
+  /* rgb(238, 238, 238) */
 }
+
+
