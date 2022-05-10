@@ -68,7 +68,27 @@ router.get('/upcoming', async (req, res) => {
 });
 
 // Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
-router.get('upcoming/:id', async (req,res))
+router.get('upcoming/:id', async (req,res) => {
+    try {
+        const upcomingEvent= await Events.findByPk({
+            include: [
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        })
+        const event = upcomingEventData.map((event)=> event.get({ plain: true}));
+        // Rendering page for a single upcoming event
+        res.render('upcomingEvent', {
+            event,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
 router.get('repeated', async (req, res) => {
     try {
@@ -86,6 +106,44 @@ router.get('repeated', async (req, res) => {
             repeatedEvents,
             logged_in: req.session
         });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//Route to checklist 
+router.get('checklist', async (req, res) => {
+    try {
+        const checklistData = await Checklists.findAll({
+            include: [
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        })
+        const checklist = checklistData.map((checklist) => checklist.get({ plain: true}));
+        res.rednder('checklist', {
+            checklist,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Route to get a single repeated event and render its page
+router.get('/repeated/:id', async (req,res) => {
+    try {
+        const eventData= await Events.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        });
+        const repeatedEvent = eventData.map((event) => event.get({ plain: true }));
     } catch (err) {
         res.status(500).json(err);
     }
