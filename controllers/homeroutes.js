@@ -24,7 +24,26 @@ router.get('/calendar', async (req, res) => {
 });
 
 //Route to get and render a single event by ID
-
+router.get('event/:id', async (req, res) => {
+    try {
+        const eventData = await Events.findAll ({
+            include :[
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        });
+        const event = eventData.map((event) => event.get({ plain: true }));
+// Render and reference handlebar that create a single event
+        res.render('event', {
+            event,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
