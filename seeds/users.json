@@ -1,0 +1,18 @@
+[
+  {
+    "email": "jvbridge@gmail.com",
+    "password": "password"
+  },
+  {
+    "email": "hello@gmail.com",
+    "password": "password"
+  },
+  {
+    "email": "example@gmail.com",
+    "password": "password"
+  },
+  {
+    "email": "example@example.com",
+    "password": "password"
+  }
+]

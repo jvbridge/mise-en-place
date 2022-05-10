@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
+const Events = require("./events");
 
 /**
  * Users is the table used to store every individual user data info
@@ -24,10 +25,6 @@ Users.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // username: { TODO: do we really need a user name? Email seems sufficient
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
