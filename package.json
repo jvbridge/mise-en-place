@@ -4,7 +4,9 @@
   "description": "Time management website that allows both short term and long term planning",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./seeds/seed.js",
+    "watch": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,10 @@
     "express-handlebars": "^6.0.5",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
+    "moment": "^2.29.3",
     "mysql2": "^2.3.3",
     "node-calendar": "^0.1.5",
+    "nodemon": "^2.0.16",
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
