@@ -111,27 +111,6 @@ router.get('repeated', async (req, res) => {
     }
 });
 
-//Route to checklist 
-router.get('checklist', async (req, res) => {
-    try {
-        const checklistData = await Checklists.findAll({
-            include: [
-                {
-                    model: Users,
-                    attributes: ['name'],
-                }
-            ]
-        })
-        const checklist = checklistData.map((checklist) => checklist.get({ plain: true}));
-        res.rednder('checklist', {
-            checklist,
-            logged_in: req.session
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 // Route to get a single repeated event and render its page
 router.get('/repeated/:id', async (req,res) => {
     try {
@@ -149,6 +128,29 @@ router.get('/repeated/:id', async (req,res) => {
     }
 });
 
+//Route to checklist 
+router.get('checklist', async (req, res) => {
+    try {
+        const checklistData = await Checklists.findAll({
+            include: [
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        })
+        const checklist = checklistData.map((checklist) => checklist.get({ plain: true}));
+        res.render('checklist', {
+            checklist,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+// Route to get a single checklist item
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
