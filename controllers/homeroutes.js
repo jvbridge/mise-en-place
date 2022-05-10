@@ -1,6 +1,30 @@
 const router = require("express").Router();
 const { Events, Checklists, Users } = require('../models');
 
+//Route to calendar and to render calendar
+router.get('/calendar', async (req, res) => {
+    try {
+        const eventData = await Events.findAll ({
+            include :[
+                {
+                    model: Users,
+                    attributes: ['name'],
+                }
+            ]
+        });
+        const events = eventData.map((event) => event.get({ plain: true }));
+
+        res.render('calendar', {
+            events,
+            logged_in: req.session
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//Route to get and render a single event by ID
+
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
