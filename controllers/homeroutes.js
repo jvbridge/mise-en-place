@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Events, Checklists, Users } = require('../models');
+const { Events, Checklists, Users, ChecklistItems } = require('../models');
 
 //Route to calendar and to render calendar
 router.get('/calendar', async (req, res) => {
@@ -134,8 +134,8 @@ router.get('checklist', async (req, res) => {
         const checklistData = await Checklists.findAll({
             include: [
                 {
-                    model: Users,
-                    attributes: ['name'],
+                    model: ChecklistItems,
+                    attributes: ['description'],
                 }
             ]
         })
@@ -150,7 +150,22 @@ router.get('checklist', async (req, res) => {
 });
 
 // Route to get a single checklist item
-router.get('checklist/:id')
+router.get('checklistitems/:id', async (req, res) => {
+    try {
+        const checklistData = await ChecklistItems.findByPk(req.params.id, {
+            include: [
+                {
+                    model: ChecklistItems,
+                    attributes: ['description'],
+                }
+            ]
+        });
+        const checklistItems = checklistData.map((checklistItem) => checklistItem.get({ plain: true}))
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
