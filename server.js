@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-// TODO: routes
+const routes = require("./controllers");
 
 const db = require("./config/connection");
 
@@ -30,15 +30,13 @@ const sess = {
 
 app.use(session(sess));
 
-// TODO: app engine goes here
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// this serves up the "public" folder, if we use handlebars it won't be needed
+// this serves up the "public" folder as the front end
 app.use(express.static(path.join(__dirname, "public")));
 
-// TODO: finished router goes here (dont forget to require() it)
-// app.use(routes);
+// router
+app.use(routes);
 
 // start up our app
 db.sync({ force: false }).then(() => {
