@@ -149,12 +149,12 @@ router.get('checklist', async (req, res) => {
     }
 });
 
-
 // Route to get a single checklist item
+router.get('checklist/:id')
 // Route to login
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res,redirect('/')
+        res.redirect('/')
     }
 
     res.render('login');
