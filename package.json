@@ -26,6 +26,19 @@
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
+    "node-calendar": "^0.1.5",
     "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier"
+    ],
+    "env": {
+      "es2022": true
+    }
   }
 }
