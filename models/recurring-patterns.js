@@ -4,7 +4,28 @@ const sequelize = require("../config/connection");
 /**
  * recurringPatterns allow us to store the pattern for an event the re-occurs.
  */
-class RecurringPatterns extends Model {}
+class RecurringPatterns extends Model {
+  /**
+   * Returns a string that is valid for input into table for string
+   * @param {Array} arr
+   * @returns {String}
+   */
+  dateString(arr) {
+    return arr.join(",");
+  }
+
+  getDays() {
+    return this.days_of_week.split(",");
+  }
+
+  getDaysOfMonth() {
+    return this.days_of_month.split(",");
+  }
+
+  getMonths() {
+    return this.months_of_year.split(",");
+  }
+}
 
 RecurringPatterns.init(
   {
@@ -29,7 +50,7 @@ RecurringPatterns.init(
       allowNull: true,
     },
     days_of_week: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING,
       validate: {
         // since this is an array we must use a custom validator
         customValidator(value) {
@@ -53,7 +74,7 @@ RecurringPatterns.init(
     },
     // TODO: how would we implement last day of the month? (in cases like rent)
     days_of_month: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING,
       validate: {
         customValidator(value) {
           if (value.length > 31)
@@ -75,7 +96,7 @@ RecurringPatterns.init(
       },
     },
     months_of_year: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING, //.ARRAY(DataTypes.INTEGER),
       validate: {
         customValidator(value) {
           if (value.length > 12)
