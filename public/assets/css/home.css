@@ -36,3 +36,10 @@ img {
     margin-bottom: 2.5em;
 }
 
+.postit {
+    justify-content: center;
+}
+
+span {
+    text-align: center;
+}
