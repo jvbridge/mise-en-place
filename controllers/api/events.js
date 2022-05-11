@@ -57,9 +57,59 @@ router.post("/", authDeny, async (req, res) => {
   }
 });
 
-router.get("/:id", authDeny, async (req, res) => {});
+router.get("/:id", authDeny, async (req, res) => {
+  try {
+    // find the event
+    const eventsData = await Events.findOne({
+      where: { id: req.params.id },
+    });
 
-router.delete("/:id");
+    // check if we found an event
+    if (!eventsData) {
+      res.status(404).json(`could not find an event with id: ${req.params.id}`);
+      return;
+    }
+
+    // check if the event belongs to the user
+    if (eventsData.user_id !== req.session.userId) {
+      res.status(403).json("user does not own that event");
+      return;
+    }
+
+    // send it!
+    const event = eventsData.get({ plain: true });
+    res.status(200).json(event);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:id", authDeny, async (req, res) => {
+  try {
+    // find the event
+    const eventsData = await Events.findOne({
+      where: { id: req.params.id },
+    });
+
+    // check if we found an event
+    if (!eventsData) {
+      res.status(404).json(`could not find an event with id: ${req.params.id}`);
+      return;
+    }
+
+    // check if the event belongs to the user
+    if (eventsData.user_id !== req.session.userId) {
+      res.status(403).json("user does not own that event");
+      return;
+    }
+
+    await eventsData.destroy();
+
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.put("/:id");
 
