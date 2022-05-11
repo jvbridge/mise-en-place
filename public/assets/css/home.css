@@ -1,0 +1,69 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 198, 207);
+}
+
+nav {
+    background-color: lightsalmon;
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+a:link {
+    color: white;
+}
+
+a:link:hover {
+    color: lightcoral;
+}
+
+.row {
+    margin: 10px;
+    padding: 3em;
+}
+
+.container {
+    padding: 5em;
+}
+
+h1 {
+    font-size: 45px;
+}
+.button-group {
+    padding: 10px;
+}
+
+.btn {
+    /* background-color: rgb(252, 156, 82); */
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: lightsalmon;
+}
+
+
+img {
+    margin-bottom: 2.5em;
+}
+
+.slogan {
+    font-weight: lighter;
+    padding-top: 3px;
+    font-size: 25px;
+}
+
+.modal-header {
+    background-color: rgb(255, 198, 207)
+}
+
+label {
+    font-weight: bold;
+}
