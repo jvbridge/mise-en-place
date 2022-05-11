@@ -8,7 +8,12 @@ router.get("/", async (req, res)=> {
       //where: { user_id: req.session.userId },
     });
 
-    const events = eventData.map((event)=> event.get({ plain:true}))
+    const events = eventData.map((event)=> event.get({ plain:true}));
+
+    res.render("homepage", {
+      //events
+      //logged_in: req.session,
+    })
   }
 })
 //Route to calendar and to render calendar
