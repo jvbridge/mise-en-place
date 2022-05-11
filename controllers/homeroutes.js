@@ -5,8 +5,10 @@ const { Events, Checklists, Users, ChecklistItems } = require("../models");
 router.get("/", async (req, res)=> {
   try {
     const eventData = await Event.findAll({
-      //where: {}
-    })
+      //where: { user_id: req.session.userId },
+    });
+
+    const events = eventData.map((event)=> event.get({ plain:true}))
   }
 })
 //Route to calendar and to render calendar
