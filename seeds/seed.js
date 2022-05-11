@@ -1,5 +1,6 @@
 const sequelize = require("../config/connection");
 const { Users } = require("../models");
+const Moment = require("moment");
 
 const userdata = require("./users.json");
 
@@ -12,6 +13,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+
   process.exit(0);
 };
 
