@@ -44,7 +44,6 @@ header {
 }
 
 .btn {
-    /* background-color: rgb(252, 156, 82); */
     background-color: lightcoral;
     color: white;
     border: none;
@@ -54,6 +53,12 @@ header {
     padding-left: 8px;
     padding-right: 8px;
     font-weight: bold;
+}
+
+.btn:active, .btn:focus {
+  background-color: salmon;
+  color: white;
+  outline-style: none;
 }
 
 .btn:hover {
