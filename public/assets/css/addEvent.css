@@ -1,0 +1,85 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+nav {
+  background-color: lightsalmon;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+a:link {
+  color: white;
+}
+
+a:link:hover {
+    color: lightcoral;
+}
+
+header {
+  padding: 1em;
+  color: darkgrey;
+}
+
+h6 {
+  margin-top: 8px;
+}
+
+.main-header {
+  background-color: rgb(255, 198, 207);
+  color: white;
+  text-align: center;
+}
+
+.calendar-card {
+  background-color: white;
+}
+
+.form-container {
+    margin-left: 1em;
+    margin-top: 10px;
+}
+
+.form-label {
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.to-do-card-header {
+  /* background-color: lightgreen; */
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
+
+.to-do-card {
+  margin-bottom: 2em;
+}
+
+/* .to-do-item {
+    background-color: rgb(160, 255, 160);
+} */
+
+.missed-card {
+  margin-bottom: 2em;
+}
+
+.missed-card-header {
+  /* background-color: lightcoral; */
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
+
+.missed-item {
+  background-color: rgb(238, 238, 238);
+  /* rgb(238, 238, 238) */
+}
+
+
