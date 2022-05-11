@@ -12,12 +12,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <title>Mise En place</title>
 </head>
 
-<body class="text-center">
+<body class="home-body text-center">
 
     <!-- a links active once user logged in -->
     <nav class="navbar justify-content-center">
@@ -40,14 +40,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Checklist</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
         </ul>
     </nav>
-    <main>
-        <div class="d-flex row justify-content-center align-items-center">
-            <div class="col-6">
-                <div class="container container-fluid bg-light text-center">
 
-                    <h1>Mise en Place</h1>
+    <main>
+        <div class="d-flex home-row justify-content-center align-items-center">
+            <div class="col-6">
+                <div class="container home-container container-fluid bg-light text-center">
+
+                    <h1 class="app-name">Mise en Place</h1>
                     <p class="slogan">Put everything in place
                     </p>
                     <img src="../images/kanban.png" width="250px" height="250px">
@@ -79,9 +83,9 @@
                 <div class="modal-body">
                     <form>
                         <div class="row mb-3">
-                            <label for="inputUsername" class="col-4 col-form-label">Username</label>
+                            <label for="inputEmail" class="col-4 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
                             </div>
 
                             <label for="inputPassword" class="col-4 col-form-label">Password</label>
@@ -112,10 +116,6 @@
                 <div class="modal-body">
                     <form>
                         <div class="row mb-3">
-                            <label for="inputUsername" class="col-4 col-form-label">Username</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                            </div>
 
                             <label for="inputEmail" class="col-4 col-form-label">Email</label>
                             <div class="col-sm-10">
