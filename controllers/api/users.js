@@ -74,4 +74,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", async (req, res) => {
+  try {
+    if (!req.session.loggedIn) {
+      res.status(400).json("user was not logged in");
+      return;
+    }
+
+    // automatically log in the user when they are first created.
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(500).json(err);
+      } else {
+        res.sendStatus(200);
+      }
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
