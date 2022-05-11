@@ -2,17 +2,17 @@ const router = require("express").Router();
 const { Events, Checklists, Users, ChecklistItems } = require("../models");
 
 //Route to the homepage
-router.get("/", async (req, res) => {
+router.get("/home", async (req, res) => {
   try {
     const eventData = await Events.findAll({
-      //where: { user_id: req.session.userId },
+      // where: { user_id: req.session.userId }, TODO: put log in logic for this
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
 
     res.render("homepage", {
-      //events
-      //logged_in: req.session,
+      // events,
+      // logged_in: req.session,
     });
   } catch (err) {
     res.status(500).json(err);
