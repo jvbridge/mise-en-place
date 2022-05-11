@@ -64,6 +64,12 @@ router.get("/addevent", async (req, res) => {
     const eventData = await Events.findAll({
       where: {},
     });
+    const event = eventData.map((event) => event.get({ plain: true }));
+    //Render the addEvent page
+    res.render("addEvent", {
+      event,
+      logged_in: req.session,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
