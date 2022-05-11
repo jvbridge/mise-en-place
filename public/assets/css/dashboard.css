@@ -1,9 +1,18 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
 nav {
   background-color: rgb(255, 198, 207);
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
 
 a:link {
   color: black;
+}
+
+a:link:hover {
+    color: lightcoral;
 }
 
 header {
