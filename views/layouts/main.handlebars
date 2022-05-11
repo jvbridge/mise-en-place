@@ -17,7 +17,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Dashboard</title>
 </head>
 
@@ -64,9 +64,9 @@
                 <i class="fa-solid fa-plus"></i>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item to-do-item">An item</li>
-                <li class="list-group-item to-do-item">A second item</li>
-                <li class="list-group-item to-do-item">A third item</li>
+                {{#each to_do as | item | }}
+                <li class="list-group-item to-do-item">{{item.name}}</li>
+                {{/each}}
             </ul>
         </div>
 
@@ -75,9 +75,9 @@
                 Missed To Dos:
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item missed-item">An item</li>
-                <li class="list-group-item missed-item">A second item</li>
-                <li class="list-group-item missed-item">A third item</li>
+                {{#each to_do as | item | }}
+                <li class="list-group-item missed-item">{{item.name}}</li>
+                {{/each}}
             </ul>
         </div>
 

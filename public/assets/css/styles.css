@@ -56,7 +56,7 @@ header {
 }
 
 .btn:active, .btn:focus {
-  background-color: salmon;
+  background-color: lightsalmon;
   color: white;
   outline-style: none;
 }

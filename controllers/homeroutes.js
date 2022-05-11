@@ -5,12 +5,9 @@ const { Events, Checklists, Users, ChecklistItems } = require('../models');
 router.get('/calendar', async (req, res) => {
     try {
         const eventData = await Events.findAll ({
-            include :[
-                {
-                    model: Users,
-                    attributes: ['name'],
-                }
-            ]
+            where: {
+                id: req.session.userId
+            }
         });
         const events = eventData.map((event) => event.get({ plain: true }));
 
