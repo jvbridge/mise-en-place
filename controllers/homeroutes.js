@@ -40,14 +40,7 @@ router.get("/calendar", async (req, res) => {
 //Route to get and render a single event by ID
 router.get("event/:id", async (req, res) => {
   try {
-    const eventData = await Events.findByPk(req.params.id, {
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const eventData = await Events.findByPk(req.params.id, {});
     const event = eventData.map((event) => event.get({ plain: true }));
     // Render and reference handlebar that create a single event
     res.render("event", {
@@ -62,14 +55,7 @@ router.get("event/:id", async (req, res) => {
 //Route to upcoming events(still need to add helper that will determine upcoming events)
 router.get("/upcoming", async (req, res) => {
   try {
-    const eventData = await Events.findAll({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const eventData = await Events.findAll({});
     const events = eventData.map((event) => event.get({ plain: true }));
 
     res.render("upcoming", {
@@ -84,14 +70,7 @@ router.get("/upcoming", async (req, res) => {
 // Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
 router.get("upcoming/:id", async (req, res) => {
   try {
-    const upcomingEvent = await Events.findByPk({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const upcomingEvent = await Events.findByPk({});
     const event = upcomingEventData.map((event) => event.get({ plain: true }));
     // Rendering page for a single upcoming event
     res.render("upcomingEvent", {
@@ -106,14 +85,7 @@ router.get("upcoming/:id", async (req, res) => {
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
 router.get("repeated", async (req, res) => {
   try {
-    const eventData = await Events.findAll({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const eventData = await Events.findAll({});
     const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
 
     res.render("repeated", {
@@ -128,14 +100,7 @@ router.get("repeated", async (req, res) => {
 // Route to get a single repeated event and render its page
 router.get("/repeated/:id", async (req, res) => {
   try {
-    const eventData = await Events.findByPk(req.params.id, {
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const eventData = await Events.findByPk(req.params.id, {});
     const repeatedEvent = eventData.map((event) => event.get({ plain: true }));
   } catch (err) {
     res.status(500).json(err);
