@@ -18,7 +18,8 @@ const authRedirect = (req, res, next) => {
  */
 const authDeny = (req, res, next) => {
   if (!req.session.loggedIn) {
-    res.sendStatus(403);
+    res.status(403).json("Not logged in");
+    return;
   } else {
     next();
   }
