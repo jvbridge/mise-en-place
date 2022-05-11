@@ -53,10 +53,32 @@
         <div class="card calendar-card" style="width: 100%">
           <div class="card-body">
             <div class="card-header main-header card-title">
-              <h5>Current Day</h5>
+              <h5>Add New Calendar Event</h5>
             </div>
-            Calendar Here
-            <i class="fa-regular fa-calendar-plus"></i>
+            
+            <form>
+                <div class="">
+                    <div class="">
+                        <input type="text" placeholder="Event Name">
+                    </div>
+                    <div class="">
+                        <input type="text" placeholder="Event Location">
+                    </div>
+                    <div class="">
+                        <input type="datetime-local">
+                    </div>
+                    <div class="">
+                        <select class="form-select" aria-label="repeatSelect">
+                            <option selected>Repeat Event:</option>
+                            <option value="1">Never</option>
+                            <option value="2">Every Day</option>
+                            <option value="3">Every Week</option>
+                            <option value="4">Every Month</option>
+                          </select>
+                    </div>
+                </div>
+            </form>
+            
           </div>
         </div>
       </div>
