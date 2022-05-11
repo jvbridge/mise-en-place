@@ -55,7 +55,6 @@ router.post("/login", async (req, res) => {
     }
 
     const valid = userData.checkPassword(req.body.password);
-    console.log("user is valid: ", valid);
 
     if (!valid) {
       res.status(403).json(`Incorrect Email or password`);
