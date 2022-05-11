@@ -53,6 +53,14 @@ h6 {
     font-weight: bold;
 }
 
+.btn:hover {
+    background-color: lightsalmon;
+}
+
+i {
+    float: right;
+}
+
 .to-do-card-header {
   /* background-color: lightgreen; */
   background-color: rgb(255, 198, 207);
