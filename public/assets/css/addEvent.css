@@ -27,14 +27,38 @@ h6 {
 .main-header {
   background-color: rgb(255, 198, 207);
   color: white;
+  text-align: center;
 }
 
 .calendar-card {
   background-color: white;
 }
 
+.form-container {
+    margin-left: 1em;
+    margin-top: 10px;
+}
+
+.form-label {
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: lightsalmon;
+}
+
 i {
-  float: right;
+    float: right;
 }
 
 .to-do-card-header {

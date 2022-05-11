@@ -33,6 +33,10 @@ h6 {
   background-color: white;
 }
 
+i {
+  float: right;
+}
+
 .to-do-card-header {
   /* background-color: lightgreen; */
   background-color: rgb(255, 198, 207);
