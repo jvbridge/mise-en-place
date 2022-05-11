@@ -37,13 +37,19 @@ router.get("/calendar", async (req, res) => {
   }
 });
 
-//Route to get and render a single event by ID
-router.get("event/:id", async (req, res) => {
+//Route to get and render the dashboard showing today's events
+router.get("/dashboard", async (req, res) => {
   try {
-    const eventData = await Events.findByPk(req.params.id, {});
+    const eventData = await Events.findAll({
+      where: {
+        //find events that are happening today
+        start_date: req.params.Date,
+        end_date: req.params.Date,
+      },
+    });
     const event = eventData.map((event) => event.get({ plain: true }));
-    // Render and reference handlebar that create a single event
-    res.render("event", {
+    // Render and reference handlebar that creates the dashboard
+    res.render("dashboard", {
       event,
       logged_in: req.session,
     });
