@@ -17,14 +17,15 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css" type="text/css">
+
     <title>Dashboard</title>
 </head>
 
 <body>
 
     <!-- add a 'logged in' with username in navbar -->
-    {{#if logged_in}}
+    
     <nav class="navbar justify-content-center">
         <ul class="nav">
             <li class="nav-item">
@@ -45,19 +46,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Checklist</a>
             </li>
+            {{#if logged_in}}
             <li class="nav-item">
                 <a class="nav-link" id="logout" href="#">Logout</a>
             </li>
+            {{/if}}
         </ul>
     </nav>
-    {{/if}}
+    
 
     <main>
         {{{ body }}}
     </main>
 
     <!-- To-Do Column -->
-    <div class="col-3">
+    {{!-- <div class="col-3">
         <div class="card to-do-card" style="width: 100%">
             <div class="card-header to-do-card-header">
                 To Do:
@@ -81,9 +84,8 @@
             </ul>
         </div>
 
-    </div>
-    </div>
-    </div>
+    </div> --}}
+
 
 
 

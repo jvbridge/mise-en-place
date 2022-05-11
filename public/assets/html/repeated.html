@@ -12,11 +12,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="../css/styles.css">
-  <title>Dashboard</title>
+  <title>Repeated</title>
 </head>
 
 <body>
@@ -49,34 +48,31 @@
   </nav>
 
   <header class="text-center">
-    <h3>Dashboard</h3>
+    <h3>Repeated Events</h3>
   </header>
-  <main>
   <!-- Today Overview column -->
   <div class="container container-fluid">
     <div class="row">
-      <div class="col-9 dash-container">
-        <div class="card day-card" style="width: 100%">
+      <div class="col-9 main-container">
+        <div class="card checklist-card" style="width: 100%">
           <div class="card-body">
             <div class="card-header dash-header card-title">
-              <h5>What Your Day Looks Like:</h5>
+              <h5>Your Repeated Events</h5>
             </div>
-            <div class="card-subtitle mb-2 text-muted">
-              <h6>Today is: \{{moment format="dddd, DD MMMM YYYY HH:mm:ss"}}</h6>
+            <div class="col-md-3">
+                <label for="repeatSelectView" class="form-label">View Repeated Events By:</label>
+                <select class="form-select">
+                    <option selected>Select</option>
+                    <option value="2">Daily</option>
+                    <option value="3">Weekly</option>
+                    <option value="4">Monthly</option>
+                </select>
             </div>
 
-            <ul>
-              <li>An Event</li>
-              <li>An Appointment</li>
-              <li>Take Vitamins</li>
-              <li>Drink Water</li>
-              <li>Stretch</li>
-            </ul>
           </div>
         </div>
       </div>
 
-    </main>
       <!-- To-Do Column -->
       <div class="col-3">
         <div class="card to-do-card" style="width: 100%">
@@ -111,8 +107,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <script src="../js/moment.js"></script>
-  <script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>
