@@ -58,6 +58,17 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
+//Route to render the add event page
+router.get("/addevent", async (req, res) => {
+  try {
+    const eventData = await Events.findAll({
+      where: {},
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //Route to upcoming events(still need to add helper that will determine upcoming events)
 router.get("/upcoming", async (req, res) => {
   try {
