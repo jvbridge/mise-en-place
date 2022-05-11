@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //Route to calendar and to render calendar
 router.get("/calendar", async (req, res) => {
   try {
