@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/addEvent.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Calendar</title>
 </head>
 
@@ -40,6 +40,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Checklist</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
         </ul>
     </nav>
 
@@ -49,14 +52,14 @@
 
     <div class="container container-fluid">
         <div class="row justify-content-center">
-            <div class="col-6 main-container">
+            <div class="col-6 event-container">
                 <div class="card calendar-card" style="width: 100%">
                     <div class="card-body">
-                        <div class="card-header main-header card-title">
+                        <div class="card-header event-header card-title">
                             <h5>Add New Calendar Event</h5>
                         </div>
 
-                        <div class="form-container">
+                        <div class="event-form-container">
                             <form>
                                 <div class="mb-3 justify-content-center">
                                     <div class="col-md-3">
@@ -82,7 +85,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <button type="submit" class="btn btn-primary">Add Event</button>
+                                        <button type="submit" class="event-btn btn-primary">Add Event</button>
                                     </div>
                                 </div>
                             </form>
