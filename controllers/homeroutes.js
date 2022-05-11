@@ -4,7 +4,7 @@ const { Events, Checklists, Users, ChecklistItems } = require("../models");
 //Route to the homepage
 router.get("/", async (req, res) => {
   try {
-    const eventData = await Event.findAll({
+    const eventData = await Events.findAll({
       //where: { user_id: req.session.userId },
     });
 
