@@ -43,8 +43,8 @@ router.get("/dashboard", async (req, res) => {
     const eventData = await Events.findAll({
       where: {
         //find events that are happening today
-        start_date: req.params.Date,
-        end_date: req.params.Date,
+        // start_date: req.params.Date,
+        // end_date: req.params.Date,
       },
     });
     const event = eventData.map((event) => event.get({ plain: true }));
