@@ -130,8 +130,23 @@ router.put("/:id", authDeny, async (req, res) => {
       return;
     }
 
+    // TODO: make validate the body
+
+    const event = {
+      user_id: req.session.userId,
+      title: req.body.title,
+      description: req.body.description,
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      start_time: req.body.start_time,
+      end_time: req.body.end_time,
+      is_full_day: req.body.is_full_day,
+      is_recurring: req.body.is_recurring,
+    };
+
     // all good, update the event
-    eventData;
+    eventData.set(event);
+    await eventData.save();
     res.sendStatus(200);
   } catch (err) {
     res.status(500).json(err);
