@@ -16,12 +16,11 @@
           </div>
 
           <ul>
-            <li>An Event</li>
-            <li>An Appointment</li>
-            <li>Take Vitamins</li>
-            <li>Drink Water</li>
-            <li>Stretch</li>
+            {{#each event}}
+            <li id="event-item-{{event.title}}"></li>
+            {{/each}}
           </ul>
+
         </div>
       </div>
     </div>

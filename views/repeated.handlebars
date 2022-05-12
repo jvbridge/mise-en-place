@@ -15,12 +15,15 @@
                         <label for="repeatSelectView" class="form-label">View Repeated Events By:</label>
                         <select class="form-select">
                             <option selected>Select</option>
+                            <option value="1">All</option>
                             <option value="2">Daily</option>
                             <option value="3">Weekly</option>
                             <option value="4">Monthly</option>
                         </select>
                     </div>
 
+                    {{!-- loop through all repeated events {{#each repeatedEvents }} --}}
+                    
                     {{!-- When daily is selected display label with all daily repeat inputs with associated dates/times --}}
                     <div class="daily" hidden>
                         <label for="dailyRepeat" class="form-label">Daily Repeats</label>

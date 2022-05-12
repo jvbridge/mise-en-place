@@ -140,11 +140,11 @@ router.get("/checklist", async (req, res) => {
         },
       ],
     });
-    const checklist = checklistData.map((checklist) =>
+    const checklists = checklistData.map((checklist) =>
       checklist.get({ plain: true })
     );
     res.render("checklist", {
-      checklist,
+      checklists,
       logged_in: req.session,
     });
   } catch (err) {
