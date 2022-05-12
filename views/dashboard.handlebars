@@ -12,7 +12,7 @@
             <h5>What Your Day Looks Like:</h5>
           </div>
           <div class="card-subtitle mb-2 text-muted">
-            <h6>Today is: <span id="today"></span></h6>
+            <h5><strong>Today is:</strong> <span id="today"></span></h5>
           </div>
 
           <ul>
@@ -32,11 +32,13 @@
       <div class="card to-do-card" style="width: 100%">
         <div class="card-header to-do-card-header">
           To Do:
-          <i class="fa-solid fa-plus"></i>
+          <a href="checklist.html" id="plus">
+            <i class="fa-solid fa-plus"></i>
+          </a>
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as | item | }}
-          <li class="list-group-item to-do-item">{{item.name}}</li>
+          {{#each checklistItems as | item | }}
+          <li class="list-group-item to-do-item">{{checklists.name}}</li>
           {{/each}}
         </ul>
       </div>
@@ -46,8 +48,8 @@
           Missed To Dos:
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as | item | }}
-          <li class="list-group-item missed-item">{{item.name}}</li>
+          {{#each checklistItems as | item | }}
+          <li class="list-group-item missed-item">{{checklists.name}}</li>
           {{/each}}
         </ul>
       </div>
@@ -56,5 +58,5 @@
   </div>
 </div>
 
-
-<script src="/js/dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="/assets/js/dashboard.js"></script>
