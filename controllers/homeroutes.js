@@ -36,8 +36,8 @@ router.get("/calendar", async (req, res) => {
   }
 });
 
-//Route to get and render a single event by ID
-router.get("/event/:id", async (req, res) => {
+//Route to get and render the dashboard showing today's events
+router.get("/dashboard", async (req, res) => {
   try {
     const eventData = await Events.findAll({
       where: {
