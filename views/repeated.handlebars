@@ -22,14 +22,14 @@
                     </div>
 
                     {{!-- When daily is selected display label with all daily repeat inputs with associated dates/times --}}
-                    <div class="daily">
+                    <div class="daily" hidden>
                         <label for="dailyRepeat" class="form-label">Daily Repeats</label>
                         <input class="form-control" type="text" value="This task is repeated every day at 9am"
                             aria-label="readonly input example" readonly>
                     </div>
 
                     {{!-- When weekly is selected display label with all weekly repeat inputs with associated dates/times --}}
-                    <div class="weekly">
+                    <div class="weekly" hidden>
                         <label for="weeklyRepeat" class="form-label">Weekly Repeats</label>
                         <input class="form-control" type="text"
                             value="This task is repeated every week on Wednesday at 8pm"
@@ -37,7 +37,7 @@
                     </div>
 
                     {{!-- When monthly is selected display label with all monthly repeat inputs with associated dates/times --}}
-                    <div class="monthly">
+                    <div class="monthly" hidden>
                         <label for="monthlyRepeat" class="form-label">Monthly Repeats</label>
                         <input class="form-control" type="text"
                             value="This task is repeated every month on the 1st at 2pm"
@@ -48,31 +48,36 @@
             </div>
         </div>
 
+
+
+        <!-- To-Do Column -->
+        <div class="col-3">
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header to-do-card-header">
+                    To Do:
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item to-do-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header missed-card-header">
+                    Missed To Dos:
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item missed-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- To-Do Column -->
-<div class="col-3">
-    <div class="card to-do-card" style="width: 100%">
-        <div class="card-header to-do-card-header">
-            To Do:
-            <i class="fa-solid fa-plus"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            {{#each to_do as | item | }}
-            <li class="list-group-item to-do-item">{{item.name}}</li>
-            {{/each}}
-        </ul>
-    </div>
 
-    <div class="card to-do-card" style="width: 100%">
-        <div class="card-header missed-card-header">
-            Missed To Dos:
-        </div>
-        <ul class="list-group list-group-flush">
-            {{#each to_do as | item | }}
-            <li class="list-group-item missed-item">{{item.name}}</li>
-            {{/each}}
-        </ul>
-    </div>
-</div>
+<script src="/assets/js/repeated.js"></script>

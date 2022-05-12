@@ -1,0 +1,48 @@
+<header class="text-center">
+    <h3>Upcoming Events</h3>
+</header>
+<!-- Today Overview column -->
+<div class="container container-fluid">
+    <div class="row">
+        <div class="col-9 main-container">
+            <div class="card checklist-card" style="width: 100%">
+                <div class="card-body">
+                    <div class="card-header dash-header card-title">
+                        <h5>Upcoming</h5>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- To-Do Column -->
+        <div class="col-3">
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header to-do-card-header">
+                    To Do:
+                    <a href="checklist.html" id="plus">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item to-do-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header missed-card-header">
+                    Missed To Dos:
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item missed-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

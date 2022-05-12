@@ -8,3 +8,5 @@ var today = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
 dateTime.textContent = today
 console.log(today);
 
+
+document.querySelector('i').addEventListener('click', );
