@@ -5,13 +5,11 @@ const { authDeny } = require("../../util/api-auth");
 // gets all the checklists
 router.get("/", authDeny, async (req, res) => {
   try {
-    console.log("getting the lists");
     const checklistData = await Checklists.findAll({
       where: { user_id: req.session.userId },
       include: [{ model: ChecklistItems, required: false }],
     });
 
-    console.log("found lists: ", checklistData);
     if (!checklistData.length) {
       res
         .status(404)
@@ -60,7 +58,32 @@ router.get("/:id", authDeny, async (req, res) => {
     }
 
     const checklist = checklistData.get({ plain: true });
-    res.json(checklist);
+    res.status(200).json(checklist);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:id", authDeny, async (req, res) => {
+  try {
+    const checklistData = await Checklists.findOne({
+      where: { id: req.params.id },
+      include: [{ model: ChecklistItems, required: false }],
+    });
+
+    if (!checklistData) {
+      res.status(404).json(`Found no checklists with id: ${req.params.id}`);
+      return;
+    }
+
+    if (checklistData.user_id !== req.session.userId) {
+      res.status(403).json("User does not own that checklist");
+      return;
+    }
+
+    await checklistData.destroy();
+
+    res.sendStatus(200);
   } catch (err) {
     res.status(500).json(err);
   }
