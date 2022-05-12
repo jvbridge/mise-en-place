@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
-const Events = require("./events");
 
 /**
  * Users is the table used to store every individual user data info
