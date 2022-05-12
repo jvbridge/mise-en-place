@@ -14,7 +14,7 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/calendar");
+      document.location.replace("/dashboard");
     } else {
       let result = await response.json();
       alert(result.message);
@@ -36,7 +36,7 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/calendar");
+      document.location.replace("/dashboard");
     } else {
       alert(result.message);
     }

@@ -13,7 +13,7 @@ const addBtn = document
     // then input is added to the list with empty checkbox
   });
 
-  
+
 // create new checklist item
 const createNewCheck = $('#addon-btn').addEventListener("click", function () {
     const routeStr = "/api/checklist" + wrapper.dataset.checklist-id + "/item";
@@ -22,8 +22,6 @@ const createNewCheck = $('#addon-btn').addEventListener("click", function () {
         method: 'POST',
         body: JSON.stringify({})
     })
-    
-    
     
 });
 
