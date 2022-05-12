@@ -157,9 +157,20 @@ h5 {
 }
 
 /* Checklist Styles */
+.addCheck:link {
+  color: white;
+}
+
 .checklist-form {
   margin-top: 1em;
 }
+
+#addon-btn {
+  background-color: lightcoral;
+  color: white;
+  border: none;
+}
+
 
 /* To-Do List Styles */
 i {
