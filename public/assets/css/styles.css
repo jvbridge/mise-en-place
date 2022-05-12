@@ -1,178 +1,183 @@
 .home-body {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    background-color: rgb(255, 198, 207);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  background-color: rgb(255, 198, 207);
 }
 
 body {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 nav {
-    background-color: lightsalmon;
-    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  background-color: lightsalmon;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
 }
 
 a:link {
-    color: white;
+  color: white;
 }
 
 a:link:hover {
-    color: lightcoral;
+  color: lightcoral;
 }
 
 /* header for all pages */
 header {
-    padding: 1em;
-    color: darkgrey;
-  } 
+  padding: 1em;
+  color: darkgrey;
+}
 
-  /* Homepage Styles */
+/* Homepage Styles */
 .home-row {
-    margin: 10px;
-    padding: 3em;
+  margin: 10px;
+  padding: 3em;
 }
 
 .home-container {
-    padding: 5em;
+  padding: 5em;
 }
 
 .app-name {
-    font-size: 45px;
+  font-size: 45px;
 }
 .button-group {
-    padding: 10px;
+  padding: 10px;
 }
 
 .btn {
-    background-color: lightcoral;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    padding: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    font-weight: bold;
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
 }
 
-.btn:active, .btn:focus {
+.btn:active,
+.btn:focus {
   background-color: lightsalmon;
   color: white;
   outline-style: none;
 }
 
 .btn:hover {
-    background-color: lightsalmon;
+  background-color: lightsalmon;
 }
 
-
 img {
-    margin-bottom: 2.5em;
+  margin-bottom: 2.5em;
 }
 
 .slogan {
-    font-weight: lighter;
-    padding-top: 3px;
-    font-size: 25px;
+  font-weight: lighter;
+  padding-top: 3px;
+  font-size: 25px;
 }
 
 .modal-header {
-    background-color: rgb(255, 198, 207)
+  background-color: rgb(255, 198, 207);
 }
 
 label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* Dashboard Styles */
 .dash-header {
-    background-color: rgb(255, 198, 207);
-    color: white;
-  }
-  
-  .day-card {
-    background-color: white;
-  }
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
 
-  h6 {
-      margin-top: 1em;
-  }
+.day-card {
+  background-color: white;
+}
+
+h6 {
+  margin-top: 1em;
+}
 
 /* Calendar Styles */
 .calendar-header {
-    background-color: rgb(255, 198, 207);
-    color: white;
-  }
-  
-  .calendar-card {
-    background-color: white;
-  }
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
 
-  /* Add Event Styles */
-  .event-header {
-    background-color: rgb(255, 198, 207);
-    color: white;
-    text-align: center;
-  }
+.calendar-card {
+  background-color: white;
+}
 
-  .event-form-container {
-    margin-left: 1em;
-    margin-top: 10px;
+/* Add Event Styles */
+.event-header {
+  background-color: rgb(255, 198, 207);
+  color: white;
+  text-align: center;
+}
+
+.event-form-container {
+  margin-left: 1em;
+  margin-top: 10px;
 }
 
 .form-label {
-    padding-top: 8px;
-    font-weight: bold;
+  padding-top: 8px;
+  font-weight: bold;
 }
 
 .event-btn {
-    background-color: lightcoral;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-weight: bold;
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .event-btn:hover {
-    background-color: lightsalmon;
+  background-color: lightsalmon;
 }
 
-  /* Checklist Styles */
+/* Repeated Styles */
+.repeat-card {
+  background-color: white;
+}
+
+/* Checklist Styles */
 .checklist-form {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 /* To-Do List Styles */
 i {
-    float: right;
-  }
-  
-  .to-do-card-header {
-    /* background-color: lightgreen; */
-    background-color: rgb(255, 198, 207);
-    color: white;
-  }
-  
-  .to-do-card {
-    margin-bottom: 2em;
-  }
-  
-  /* .to-do-item {
+  float: right;
+}
+
+.to-do-card-header {
+  /* background-color: lightgreen; */
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
+
+.to-do-card {
+  margin-bottom: 2em;
+}
+
+/* .to-do-item {
       background-color: rgb(160, 255, 160);
   } */
-  
-  .missed-card {
-    margin-bottom: 2em;
-  }
-  
-  .missed-card-header {
-    /* background-color: lightcoral; */
-    background-color: rgb(255, 198, 207);
-    color: white;
-  }
-  
-  .missed-item {
-    background-color: rgb(238, 238, 238);
-    /* rgb(238, 238, 238) */
-  }
+
+.missed-card {
+  margin-bottom: 2em;
+}
+
+.missed-card-header {
+  /* background-color: lightcoral; */
+  background-color: rgb(255, 198, 207);
+  color: white;
+}
+
+.missed-item {
+  background-color: rgb(238, 238, 238);
+  /* rgb(238, 238, 238) */
+}

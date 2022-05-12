@@ -2,14 +2,13 @@ const router = require("express").Router();
 const { Events, Checklists, Users, ChecklistItems } = require("../models");
 
 //Route to the homepage
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const eventData = await Events.findAll({
       // where: { user_id: req.session.userId }, TODO: put log in logic for this
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
-
     res.render("homepage", {
       // events,
       // logged_in: req.session,
@@ -37,8 +36,13 @@ router.get("/calendar", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 //Route to get and render the dashboard showing today's events
 router.get("/dashboard", async (req, res) => {
+=======
+//Route to get and render a single event by ID
+router.get("/event/:id", async (req, res) => {
+>>>>>>> 1e3ea5b77feb501030bb14772cf66b564e2e0f6f
   try {
     const eventData = await Events.findAll({
       where: {
@@ -91,7 +95,7 @@ router.get("/upcoming", async (req, res) => {
 });
 
 // Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
-router.get("upcoming/:id", async (req, res) => {
+router.get("/upcoming/:id", async (req, res) => {
   try {
     const upcomingEvent = await Events.findByPk({});
     const event = upcomingEventData.map((event) => event.get({ plain: true }));
@@ -106,7 +110,7 @@ router.get("upcoming/:id", async (req, res) => {
 });
 
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
-router.get("repeated", async (req, res) => {
+router.get("/repeated", async (req, res) => {
   try {
     const eventData = await Events.findAll({});
     const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
@@ -131,7 +135,7 @@ router.get("/repeated/:id", async (req, res) => {
 });
 
 //Route to checklist
-router.get("checklist", async (req, res) => {
+router.get("/checklist", async (req, res) => {
   try {
     const checklistData = await Checklists.findAll({
       include: [
@@ -154,7 +158,7 @@ router.get("checklist", async (req, res) => {
 });
 
 // Route to get a single checklist item
-router.get("checklistitems/:id", async (req, res) => {
+router.get("/checklistitems/:id", async (req, res) => {
   try {
     const checklistData = await ChecklistItems.findByPk(req.params.id, {
       include: [
