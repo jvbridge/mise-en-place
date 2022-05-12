@@ -64,6 +64,7 @@ router.get("/:id", authDeny, async (req, res) => {
   }
 });
 
+// delete a checklist
 router.delete("/:id", authDeny, async (req, res) => {
   try {
     const checklistData = await Checklists.findOne({
@@ -82,6 +83,38 @@ router.delete("/:id", authDeny, async (req, res) => {
     }
 
     await checklistData.destroy();
+
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// update a checklist
+router.put("/:id", authDeny, async (req, res) => {
+  try {
+    const checklistData = await Checklists.findOne({
+      where: { id: req.params.id },
+      include: [{ model: ChecklistItems, required: false }],
+    });
+
+    if (!checklistData) {
+      res.status(404).json(`Found no checklists with id: ${req.params.id}`);
+      return;
+    }
+
+    if (checklistData.user_id !== req.session.userId) {
+      res.status(403).json("User does not own that checklist");
+      return;
+    }
+
+    const checklist = {
+      name: req.body.name,
+      description: req.body.description,
+    };
+
+    checklistData.set(checklist);
+    await checklistData.save();
 
     res.sendStatus(200);
   } catch (err) {
