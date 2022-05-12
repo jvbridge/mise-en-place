@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Events } = require("../../models");
+const { Events, RecurringPatterns } = require("../../models");
 const { authDeny } = require("../../util/api-auth");
 
 router.get("/", authDeny, async (req, res) => {
@@ -27,7 +27,6 @@ router.get("/", authDeny, async (req, res) => {
 
 router.post("/", authDeny, async (req, res) => {
   try {
-    console.log("got a post request for a new event: ", req.body);
     // create the event object
     const event = {
       user_id: req.session.userId,
@@ -41,15 +40,29 @@ router.post("/", authDeny, async (req, res) => {
       is_recurring: req.body.is_recurring,
     };
 
-    console.log("Created Event object: ", event);
-
     // TODO: check to make sure the reponse is formated correctly
 
     // create the event
     const responseEventData = await Events.create({ ...event });
-
     // respond to confirm to user that we made it
-    const responseEvent = responseEventData.get({ plain: true });
+    let responseEvent = responseEventData.get({ plain: true });
+
+    // if it's a recurring event create the event
+    if (event.is_recurring) {
+      console.log("recurring event is happening");
+      const createPattern = {
+        separation_count: req.body.recurring.separation_count,
+        days_of_week: req.body.recurring.days_of_week,
+        days_of_month: req.body.recurring.days_of_month,
+        months_of_year: req.body.recurring.months_of_year,
+        event_id: responseEvent.id,
+      };
+
+      console.log("createing: ", createPattern);
+      const recur = await RecurringPatterns.create(createPattern);
+      console.log("created the recurring event");
+      responseEvent.recurring = recur.get({ plain: true });
+    }
 
     res.status(200).json(responseEvent);
   } catch (err) {
@@ -59,9 +72,9 @@ router.post("/", authDeny, async (req, res) => {
 
 router.get("/:id", authDeny, async (req, res) => {
   try {
-    // find the event
     const eventData = await Events.findOne({
       where: { id: req.params.id },
+      include: [{ model: RecurringPatterns, required: false }],
     });
 
     // check if we found an event
