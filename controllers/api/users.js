@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Users } = require("../../models");
+const { Users, Checklists } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -20,9 +20,16 @@ router.post("/", async (req, res) => {
       return;
     }
 
+    // create the user id
     const dbUserData = await Users.create({
       email: req.body.email,
       password: req.body.password,
+    });
+
+    // create teh todo list string
+    const dbUserTodoList = await Checklists.create({
+      name: "To Do",
+      user_id: dbUserData.id,
     });
 
     // automatically log in the user when they are first created.
@@ -31,6 +38,8 @@ router.post("/", async (req, res) => {
       req.session.loggedIn = true;
       // user id to tag them
       req.session.userId = dbUserData.id;
+      // todo list id to associate them
+      req.session.todoId = dbUserTodoList.id;
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -61,12 +70,23 @@ router.post("/login", async (req, res) => {
       return;
     }
 
+    // get their todo list
+    const userTodo = await Checklists.findOne({
+      where: {
+        user_id: userData.id,
+        name: "To Do",
+      },
+    });
+
     // automatically log in the user when they are first created.
     req.session.save(() => {
       // boolean for if we are logged in
       req.session.loggedIn = true;
       // user id to tag them
       req.session.userId = userData.id;
+      // To do list to pass into every handlebars
+      req.session.todoId = userTodo.id;
+
       res.status(200).json(userData);
     });
   } catch (err) {
