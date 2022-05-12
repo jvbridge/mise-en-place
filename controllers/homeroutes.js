@@ -107,7 +107,10 @@ router.get("/upcoming/:id", async (req, res) => {
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
 router.get("/repeated", async (req, res) => {
   try {
-    const eventData = await Events.findAll({});
+    const eventData = await Events.findAll({
+      where: { user_id: req.session.userId },
+      include: [{ model: RecurringPatterns, required: true }],
+    });
     const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
 
     res.render("repeated", {
