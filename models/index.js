@@ -18,6 +18,10 @@ Events.belongsTo(Users, {
   foreignKey: "user_id",
 });
 
+Events.hasOne(RecurringPatterns, {
+  foreignKey: "event_id",
+  onDelete: "CASCADE",
+});
 Checklists.belongsTo(Users, {
   foreignKey: "user_id",
 });
@@ -27,7 +31,6 @@ Checklists.hasMany(ChecklistItems, {
   onDelete: "CASCADE",
 });
 
-// TODO: how does onDelete work with this, we need it to cascade to it
 RecurringPatterns.belongsTo(Events, {
   foreignKey: "event_id",
 });
