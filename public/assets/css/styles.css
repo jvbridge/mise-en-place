@@ -114,6 +114,16 @@ h5 {
   background-color: white;
 }
 
+#calendar-icon {
+  margin-top: 18px;
+  color: lightsalmon;
+}
+
+
+#calendar-icon:hover {
+  color: lightcoral;
+}
+
 /* Add Event Styles */
 .event-header {
   background-color: rgb(255, 198, 207);
@@ -162,6 +172,7 @@ i {
 #plus:link {
   color: white;
 }
+
 .to-do-card-header {
   /* background-color: lightgreen; */
   background-color: rgb(255, 198, 207);
