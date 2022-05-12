@@ -12,11 +12,11 @@ nav {
   font-family: "Oswald", Arial, Helvetica, sans-serif;
 }
 
-a:link {
+a:link, #plus {
   color: white;
 }
 
-a:link:hover {
+a:link:hover, #plus:hover {
   color: lightcoral;
 }
 
@@ -159,6 +159,9 @@ i {
   float: right;
 }
 
+#plus:link {
+  color: white;
+}
 .to-do-card-header {
   /* background-color: lightgreen; */
   background-color: rgb(255, 198, 207);
