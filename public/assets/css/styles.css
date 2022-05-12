@@ -94,9 +94,15 @@ label {
   background-color: white;
 }
 
-h6 {
-  margin-top: 1em;
+h5 {
+  margin-top: 0.5em;
 }
+
+#today {
+  font-family: monospace;
+  margin-left: 15px;
+}
+
 
 /* Calendar Styles */
 .calendar-header {
