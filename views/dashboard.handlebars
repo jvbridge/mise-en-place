@@ -36,8 +36,8 @@
       <i class="fa-solid fa-plus"></i>
     </div>
     <ul class="list-group list-group-flush">
-      {{#each to_do as | item | }}
-      <li class="list-group-item to-do-item">{{item.name}}</li>
+      {{#each checklistItems as | item | }}
+      <li class="list-group-item to-do-item">{{checklists.name}}</li>
       {{/each}}
     </ul>
   </div>
@@ -47,8 +47,8 @@
       Missed To Dos:
     </div>
     <ul class="list-group list-group-flush">
-      {{#each to_do as | item | }}
-      <li class="list-group-item missed-item">{{item.name}}</li>
+      {{#each checklistItems as | item | }}
+      <li class="list-group-item missed-item">{{checklists.name}}</li>
       {{/each}}
     </ul>
   </div>

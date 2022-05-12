@@ -9,13 +9,17 @@
       <div class="card checklist-card" style="width: 100%">
         <div class="card-body">
           <div class="card-header dash-header card-title">
-            <h5>Task List:</h5>
+            <h5>To Do List:
+              <i class="fa-solid fa-plus"></i>
+            </h5>
           </div>
           <div class="checklist-form">
+
             <input class="form-check-input" type="checkbox" value="" id="checkbox">
+            {{#each checklistItems as | item | }}
             <label class="form-check-label" for="flexCheckChecked">
-              Do This
             </label>
+            {{/each}}
           </div>
 
         </div>
@@ -28,7 +32,6 @@
       <div class="card to-do-card" style="width: 100%">
         <div class="card-header to-do-card-header">
           To Do:
-          <i class="fa-solid fa-plus"></i>
         </div>
         <ul class="list-group list-group-flush">
           {{#each to_do as | item | }}
@@ -48,3 +51,5 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
