@@ -13,10 +13,10 @@ console.log(today);
 async function checkFormHandler(event) {
     event.preventDefault();
   
-    const checkItem = document.querySelector("#addInput").value.trim();
+    const eventItem = document.querySelector("#addInput").value.trim();
    checkItem.append()
   
-    if (checkItem) {
+    if (eventItem) {
       const response = await fetch("/api/checklist", {
         method: "POST",
         body: JSON.stringify({
