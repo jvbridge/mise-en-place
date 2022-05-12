@@ -196,6 +196,42 @@ router.put("/:id/item/:index", authDeny, async (req, res) => {
   }
 });
 
+// delete a checklist item
+router.delete("/:id/item/:index", authDeny, async (req, res) => {
+  try {
+    const checklistData = await Checklists.findOne({
+      where: { id: req.params.id },
+      include: [{ model: ChecklistItems, required: false }],
+    });
+
+    if (!checklistData) {
+      res.status(404).json(`Found no checklists with id: ${req.params.id}`);
+      return;
+    }
+
+    if (checklistData.user_id !== req.session.userId) {
+      res.status(403).json("User does not own that checklist");
+      return;
+    }
+
+    const itemToMod = checklistData.checklist_items[req.params.index];
+
+    if (!itemToMod) {
+      res.status(404).json("index is out of bounds");
+      return;
+    }
+
+    // get a sequelize object of the item
+    const itemData = await ChecklistItems.findByPk(itemToMod.id);
+
+    await itemData.destroy();
+
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // post route to toggle the item from checked to unchecked
 router.post("/:id/item/:index/toggle", authDeny, async (req, res) => {
   try {
