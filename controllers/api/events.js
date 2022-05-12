@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { Events, RecurringPatterns } = require("../../models");
-const { create } = require("../../models/events");
 const { authDeny } = require("../../util/api-auth");
 
 router.get("/", authDeny, async (req, res) => {
@@ -51,10 +50,16 @@ router.post("/", authDeny, async (req, res) => {
     // if it's a recurring event create the event
     if (event.is_recurring) {
       console.log("recurring event is happening");
-      const recur = await RecurringPatterns.create({
-        ...res.body.recurring,
+      const createPattern = {
+        separation_count: req.body.recurring.separation_count,
+        days_of_week: req.body.recurring.days_of_week,
+        days_of_month: req.body.recurring.days_of_month,
+        months_of_year: req.body.recurring.months_of_year,
         event_id: responseEvent.id,
-      });
+      };
+
+      console.log("createing: ", createPattern);
+      const recur = await RecurringPatterns.create(createPattern);
       console.log("created the recurring event");
       responseEvent.recurring = recur.get({ plain: true });
     }
