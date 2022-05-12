@@ -52,17 +52,15 @@ router.post("/", authDeny, async (req, res) => {
     if (event.is_recurring) {
       console.log("recurring event is happening");
       const createPattern = {
-        separation_count: req.body.recurring.separation_count,
-        days_of_week: req.body.recurring.days_of_week,
-        days_of_month: req.body.recurring.days_of_month,
-        months_of_year: req.body.recurring.months_of_year,
+        separation_count: req.body.recurring_pattern.separation_count,
+        days_of_week: req.body.recurring_pattern.days_of_week,
+        days_of_month: req.body.recurring_pattern.days_of_month,
+        months_of_year: req.body.recurring_pattern.months_of_year,
         event_id: responseEvent.id,
       };
 
-      console.log("createing: ", createPattern);
       const recur = await RecurringPatterns.create(createPattern);
-      console.log("created the recurring event");
-      responseEvent.recurring = recur.get({ plain: true });
+      responseEvent.recurring_pattern = recur.get({ plain: true });
     }
 
     res.status(200).json(responseEvent);
