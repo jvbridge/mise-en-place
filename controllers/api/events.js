@@ -6,6 +6,7 @@ router.get("/", authDeny, async (req, res) => {
   try {
     const eventsData = await Events.findAll({
       where: { user_id: req.session.userId },
+      include: [{ model: RecurringPatterns, required: false }],
     });
 
     if (!eventsData.length) {
@@ -17,7 +18,7 @@ router.get("/", authDeny, async (req, res) => {
 
     // serealize events for transit
     const events = eventsData.map((event) => event.get({ plain: true }));
-
+    // TODO: get the repeating event as well
     // send them
     res.json(events);
   } catch (err) {
