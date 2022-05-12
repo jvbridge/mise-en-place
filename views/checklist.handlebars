@@ -23,7 +23,7 @@
             </div>
 
             {{#each checklists as | checklist |}}
-            <div class="checklist-id-wrapper" id="data-checklist-id-{{checklist.id}}">
+            <div class="checklist-id-wrapper" data-checklist-id="{{checklist.id}}">
               {{#each checklist.checklist_items as | item |}}
               <input class="form-check-input" type="checkbox" value="" id="checklist-itemid-{{item.id}}">
               <label class="form-check-label" for="flexCheckChecked">
