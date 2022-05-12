@@ -12,6 +12,14 @@ nav {
   font-family: "Oswald", Arial, Helvetica, sans-serif;
 }
 
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: lightcoral;
+}
+
 a:link, #plus {
   color: white;
 }
