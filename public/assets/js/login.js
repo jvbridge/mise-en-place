@@ -22,7 +22,7 @@ async function loginFormHandler(event) {
   }
 }
 
-async function signupEventHandler(event) {
+async function signupFormHandler(event) {
   event.preventDefault();
 
   const email = document.querySelector("#inputEmail").value.trim();
@@ -43,4 +43,7 @@ async function signupEventHandler(event) {
   }
 }
 
-document.querySelector(".modal-body").addEventListener("button");
+document.querySelector(".login-form").addEventListener("submit", loginFormHandler);
+
+document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);
+

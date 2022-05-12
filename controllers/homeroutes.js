@@ -1,17 +1,14 @@
 const router = require("express").Router();
 const { Events, Checklists, Users, ChecklistItems } = require("../models");
-<<<<<<< HEAD
-=======
 
 //Route to the homepage
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const eventData = await Events.findAll({
       // where: { user_id: req.session.userId }, TODO: put log in logic for this
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
-
     res.render("homepage", {
       // events,
       // logged_in: req.session,
@@ -20,26 +17,11 @@ router.get("/home", async (req, res) => {
     res.status(500).json(err);
   }
 });
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
 
 //Route to calendar and to render calendar
 router.get("/calendar", async (req, res) => {
   try {
     const eventData = await Events.findAll({
-<<<<<<< HEAD
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-    const events = eventData.map((event) => event.get({ plain: true }));
-
-    res.render("calendar", {
-      events,
-      logged_in: req.session,
-=======
       // where: { user_id: req.session.userId }, TODO: put log in logic for this
     });
 
@@ -48,7 +30,6 @@ router.get("/calendar", async (req, res) => {
     res.render("calendar", {
       // events,
       // logged_in: req.session,
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     });
   } catch (err) {
     res.status(500).json(err);
@@ -56,20 +37,9 @@ router.get("/calendar", async (req, res) => {
 });
 
 //Route to get and render a single event by ID
-router.get("event/:id", async (req, res) => {
+router.get("/event/:id", async (req, res) => {
   try {
-<<<<<<< HEAD
-    const eventData = await Events.findByPk(req.params.id, {
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-=======
     const eventData = await Events.findByPk(req.params.id, {});
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     const event = eventData.map((event) => event.get({ plain: true }));
     // Render and reference handlebar that create a single event
     res.render("event", {
@@ -84,18 +54,7 @@ router.get("event/:id", async (req, res) => {
 //Route to upcoming events(still need to add helper that will determine upcoming events)
 router.get("/upcoming", async (req, res) => {
   try {
-<<<<<<< HEAD
-    const eventData = await Events.findAll({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-=======
     const eventData = await Events.findAll({});
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     const events = eventData.map((event) => event.get({ plain: true }));
 
     res.render("upcoming", {
@@ -108,20 +67,9 @@ router.get("/upcoming", async (req, res) => {
 });
 
 // Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
-router.get("upcoming/:id", async (req, res) => {
+router.get("/upcoming/:id", async (req, res) => {
   try {
-<<<<<<< HEAD
-    const upcomingEvent = await Events.findByPk({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-=======
     const upcomingEvent = await Events.findByPk({});
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     const event = upcomingEventData.map((event) => event.get({ plain: true }));
     // Rendering page for a single upcoming event
     res.render("upcomingEvent", {
@@ -134,20 +82,9 @@ router.get("upcoming/:id", async (req, res) => {
 });
 
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
-router.get("repeated", async (req, res) => {
+router.get("/repeated", async (req, res) => {
   try {
-<<<<<<< HEAD
-    const eventData = await Events.findAll({
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-=======
     const eventData = await Events.findAll({});
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
 
     res.render("repeated", {
@@ -162,18 +99,7 @@ router.get("repeated", async (req, res) => {
 // Route to get a single repeated event and render its page
 router.get("/repeated/:id", async (req, res) => {
   try {
-<<<<<<< HEAD
-    const eventData = await Events.findByPk(req.params.id, {
-      include: [
-        {
-          model: Users,
-          attributes: ["name"],
-        },
-      ],
-    });
-=======
     const eventData = await Events.findByPk(req.params.id, {});
->>>>>>> 952805189974351c381d0a656f88fa0f7da71ec9
     const repeatedEvent = eventData.map((event) => event.get({ plain: true }));
   } catch (err) {
     res.status(500).json(err);
@@ -181,7 +107,7 @@ router.get("/repeated/:id", async (req, res) => {
 });
 
 //Route to checklist
-router.get("checklist", async (req, res) => {
+router.get("/checklist", async (req, res) => {
   try {
     const checklistData = await Checklists.findAll({
       include: [
@@ -204,7 +130,7 @@ router.get("checklist", async (req, res) => {
 });
 
 // Route to get a single checklist item
-router.get("checklistitems/:id", async (req, res) => {
+router.get("/checklistitems/:id", async (req, res) => {
   try {
     const checklistData = await ChecklistItems.findByPk(req.params.id, {
       include: [

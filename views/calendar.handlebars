@@ -7,7 +7,7 @@
         <div class="col-9 main-container">
             <div class="card calendar-card" style="width: 100%">
                 <div class="card-body">
-                    <div class="card-header main-header card-title">
+                    <div class="card-header calendar-header card-title">
                         <h5>Current Day</h5>
                     </div>
                     Calendar Here
@@ -15,3 +15,32 @@
                 </div>
             </div>
         </div>
+
+        <!-- To-Do Column -->
+        <div class="col-3">
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header to-do-card-header">
+                    To Do:
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item to-do-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header missed-card-header">
+                    Missed To Dos:
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item missed-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
