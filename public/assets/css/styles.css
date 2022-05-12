@@ -47,11 +47,8 @@ header {
   background-color: lightcoral;
   color: white;
   border: none;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  border-radius: 15px;
+  margin: 4px;
   font-weight: bold;
 }
 
@@ -145,9 +142,9 @@ h5 {
   background-color: lightcoral;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-top: 10px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .event-btn:hover {
