@@ -44,7 +44,7 @@ router.post("/", authDeny, async (req, res) => {
 // get a specific checklist
 router.get("/:id", authDeny, async (req, res) => {
   try {
-    const checklistData = await ChecklistItems.findOne({
+    const checklistData = await Checklists.findOne({
       where: { id: req.params.id },
       include: [{ model: ChecklistItems, required: false }],
     });
@@ -54,13 +54,13 @@ router.get("/:id", authDeny, async (req, res) => {
       return;
     }
 
-    if (checklistData.user_id !== req.params.id) {
+    if (checklistData.user_id !== req.session.userId) {
       res.status(403).json("User does not own that checklist");
       return;
     }
 
-    const checklists = checklistData.map((check) => check.get({ plain: true }));
-    res.json(checklists);
+    const checklist = checklistData.get({ plain: true });
+    res.json(checklist);
   } catch (err) {
     res.status(500).json(err);
   }
