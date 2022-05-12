@@ -1,13 +1,17 @@
+<header class="text-center">
+    <h3>Calendar</h3>
+</header>
+
 <div class="container container-fluid">
     <div class="row justify-content-center">
-        <div class="col-6 main-container">
+        <div class="col-6 event-container">
             <div class="card calendar-card" style="width: 100%">
                 <div class="card-body">
-                    <div class="card-header main-header card-title">
+                    <div class="card-header event-header card-title">
                         <h5>Add New Calendar Event</h5>
                     </div>
 
-                    <div class="form-container">
+                    <div class="event-form-container">
                         <form>
                             <div class="mb-3 justify-content-center">
                                 <div class="col-md-3">
@@ -19,11 +23,11 @@
                                     <input type="text" placeholder="Event Location">
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="startTime" class="form-label">Start Date and Time</label>
+                                    <label for="startDate" class="form-label">Start Date and Time</label>
                                     <input type="datetime-local">
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="endTime" class="form-label">End Date and Time</label>
+                                    <label for="endDate" class="form-label">End Date and Time</label>
                                     <input type="datetime-local">
                                 </div>
                                 <div class="col-md-3">
@@ -37,7 +41,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary">Add Event</button>
+                                    <button type="submit" class="event-btn btn-primary">Add Event</button>
                                 </div>
                             </div>
                         </form>
@@ -45,33 +49,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- To-Do Column -->
+        <div class="col-3">
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header to-do-card-header">
+                    To Do:
+                    <a href="checklist.html" id="plus">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item to-do-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="card to-do-card" style="width: 100%">
+                <div class="card-header missed-card-header">
+                    Missed To Dos:
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each to_do as | item | }}
+                    <li class="list-group-item missed-item">{{item.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- To-Do Column -->
-<div class="col-3">
-    <div class="card to-do-card" style="width: 100%">
-        <div class="card-header to-do-card-header">
-            To Do:
-            <a href="checklist.html" id="plus">
-                <i class="fa-solid fa-plus"></i>
-            </a>
-        </div>
-        <ul class="list-group list-group-flush">
-            {{#each to_do as | item | }}
-            <li class="list-group-item to-do-item">{{item.name}}</li>
-            {{/each}}
-        </ul>
-    </div>
 
-    <div class="card to-do-card" style="width: 100%">
-        <div class="card-header missed-card-header">
-            Missed To Dos:
-        </div>
-        <ul class="list-group list-group-flush">
-            {{#each to_do as | item | }}
-            <li class="list-group-item missed-item">{{item.name}}</li>
-            {{/each}}
-        </ul>
-    </div>
-</div>
+<script src="/assets/js/addEvent.js"></script>

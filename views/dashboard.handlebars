@@ -25,39 +25,38 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- To-Do Column -->
-<div class="col-3">
-  <div class="card to-do-card" style="width: 100%">
-    <div class="card-header to-do-card-header">
-      To Do:
-      <a href="checklist.html" id="plus">
-        <i class="fa-solid fa-plus"></i>
-      </a>
+
+    <!-- To-Do Column -->
+    <div class="col-3">
+      <div class="card to-do-card" style="width: 100%">
+        <div class="card-header to-do-card-header">
+          To Do:
+          <a href="checklist.html" id="plus">
+            <i class="fa-solid fa-plus"></i>
+          </a>
+        </div>
+        <ul class="list-group list-group-flush">
+          {{#each checklistItems as | item | }}
+          <li class="list-group-item to-do-item">{{checklists.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="card to-do-card" style="width: 100%">
+        <div class="card-header missed-card-header">
+          Missed To Dos:
+        </div>
+        <ul class="list-group list-group-flush">
+          {{#each checklistItems as | item | }}
+          <li class="list-group-item missed-item">{{checklists.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      {{#each checklistItems as | item | }}
-      <li class="list-group-item to-do-item">{{checklists.name}}</li>
-      {{/each}}
-    </ul>
-  </div>
 
-  <div class="card to-do-card" style="width: 100%">
-    <div class="card-header missed-card-header">
-      Missed To Dos:
-    </div>
-    <ul class="list-group list-group-flush">
-      {{#each checklistItems as | item | }}
-      <li class="list-group-item missed-item">{{checklists.name}}</li>
-      {{/each}}
-    </ul>
   </div>
 </div>
 
-</div>
-</div>
-
-
-<script src="/js/dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="/assets/js/dashboard.js"></script>
