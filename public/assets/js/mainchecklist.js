@@ -16,8 +16,9 @@ const createNewCheck = document
   .querySelector("#addon-btn")
   .addEventListener("click", async function () {
     const routeStr =
-      "/api/checklist" + wrapper.dataset.checklist - id + "/item";
+      "/api/checklist" + dataset.checklist- id + "/item";
 
+      // FIX FETCH REQUEST
     const response = await fetch(routeStr, {
       method: "POST",
       body: JSON.stringify({}),
@@ -93,3 +94,9 @@ document.querySelectorAll(".checklist-item-checkbox").forEach((element) => {
 // if checkbox is clicked
 // then move that item to the bottom
 // change its background color
+
+const addListItem = document.querySelector(".add-item-btn").addEventListener("click", function newCheckItemForm() {
+  const addItemForm = document.querySelector("#addCheckItem-form");
+
+  addItemForm.removeAttribute("hidden");
+})
