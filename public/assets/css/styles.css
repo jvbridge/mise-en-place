@@ -127,15 +127,15 @@ h5 {
   background-color: white;
 }
 
-#calendar-icon {
-  margin-top: 18px;
-  color: lightsalmon;
+.addToCal-btn {
+  margin-top: 5px;
+  background-color: lightcoral;
 }
 
-
-#calendar-icon:hover {
-  color: lightcoral;
+.addToCal-btn:hover {
+  color: white;
 }
+
 
 /* Add Event Styles */
 .event-header {
@@ -181,12 +181,36 @@ h5 {
   margin-top: 1em;
 }
 
+.add-item-btn {
+  background-color: lightcoral;
+  color: white;
+  font-size: 13px;
+  border: none;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
 #addon-btn {
   background-color: lightcoral;
   color: white;
   border: none;
+  border-radius: 0;
+  font-size: 18px;
 }
 
+.form-check-label {
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+#checklist-name {
+  margin-top: 20px;
+}
 
 /* To-Do List Styles */
 i {
