@@ -127,15 +127,15 @@ h5 {
   background-color: white;
 }
 
-#calendar-icon {
-  margin-top: 18px;
-  color: lightsalmon;
+.addToCal-btn {
+  margin-top: 5px;
+  background-color: lightcoral;
 }
 
-
-#calendar-icon:hover {
-  color: lightcoral;
+.addToCal-btn:hover {
+  color: white;
 }
+
 
 /* Add Event Styles */
 .event-header {
