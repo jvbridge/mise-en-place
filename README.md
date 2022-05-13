@@ -60,6 +60,10 @@ You should fully be able to use the application now!
 - [Express Session](https://www.npmjs.com/package/express-session)
 - [Full Calendar](https://fullcalendar.io/)
 
+## Preview
+
+![Mise en Place Screen Shot](http://url/to/img.png)
+
 ## Deployed Link
 
 - [Mise en Place](https://mise-en-place-planner.herokuapp.com/)
