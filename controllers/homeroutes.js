@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Events, Checklists, Users, ChecklistItems } = require("../models");
+const { authRedirect } = require("../util/api-auth");
 
 //Route to the homepage
 router.get("/", async (req, res) => {
@@ -19,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 //Route to calendar and to render calendar
-router.get("/calendar", async (req, res) => {
+router.get("/calendar", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findAll({
       // where: { user_id: req.session.userId }, TODO: put log in logic for this
@@ -37,7 +38,7 @@ router.get("/calendar", async (req, res) => {
 });
 
 //Route to get and render the dashboard showing today's events
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findAll({
       where: {
@@ -58,7 +59,7 @@ router.get("/dashboard", async (req, res) => {
 });
 
 //Route to render the add event page
-router.get("/addevent", async (req, res) => {
+router.get("/addevent", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findAll({
       where: {},
@@ -75,7 +76,7 @@ router.get("/addevent", async (req, res) => {
 });
 
 //Route to upcoming events(still need to add helper that will determine upcoming events)
-router.get("/upcoming", async (req, res) => {
+router.get("/upcoming", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findAll({});
     const events = eventData.map((event) => event.get({ plain: true }));
@@ -90,7 +91,7 @@ router.get("/upcoming", async (req, res) => {
 });
 
 // Route to return a single upcoming event and render that handlebars (need to add handlebar file if we decide to do so)
-router.get("/upcoming/:id", async (req, res) => {
+router.get("/upcoming/:id", authRedirect, async (req, res) => {
   try {
     const upcomingEvent = await Events.findByPk({});
     const event = upcomingEventData.map((event) => event.get({ plain: true }));
@@ -105,7 +106,7 @@ router.get("/upcoming/:id", async (req, res) => {
 });
 
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
-router.get("/repeated", async (req, res) => {
+router.get("/repeated", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findAll({
       where: { user_id: req.session.userId },
@@ -123,7 +124,7 @@ router.get("/repeated", async (req, res) => {
 });
 
 // Route to get a single repeated event and render its page
-router.get("/repeated/:id", async (req, res) => {
+router.get("/repeated/:id", authRedirect, async (req, res) => {
   try {
     const eventData = await Events.findByPk(req.params.id, {});
     const repeatedEvent = eventData.map((event) => event.get({ plain: true }));
@@ -133,7 +134,7 @@ router.get("/repeated/:id", async (req, res) => {
 });
 
 //Route to checklist
-router.get("/checklist", async (req, res) => {
+router.get("/checklist", authRedirect, async (req, res) => {
   try {
     const checklistData = await Checklists.findAll({
       include: [
