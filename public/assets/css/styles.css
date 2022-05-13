@@ -28,11 +28,13 @@ nav {
   padding-top: 12px;
 }
 
-a:link, #plus {
+a:link,
+#plus {
   color: white;
 }
 
-a:link:hover, #plus:hover {
+a:link:hover,
+#plus:hover {
   color: lightcoral;
 }
 
@@ -116,7 +118,6 @@ h5 {
   margin-left: 15px;
 }
 
-
 /* Calendar Styles */
 .calendar-header {
   background-color: rgb(255, 198, 207);
@@ -135,7 +136,6 @@ h5 {
 .addToCal-btn:hover {
   color: white;
 }
-
 
 /* Add Event Styles */
 .event-header {
@@ -212,6 +212,11 @@ ul {
   margin-top: 20px;
 }
 
+#addItem-btn {
+  background-color: lightcoral;
+  color: white;
+  border: none;
+}
 /* To-Do List Styles */
 i {
   float: right;
