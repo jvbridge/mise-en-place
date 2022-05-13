@@ -4,7 +4,7 @@ const addBtn = document
   .addEventListener("click", function newCheckForm() {
     // event.preventDefault();
 
-    const addCheckForm = $("addCheck-form");
+    const addCheckForm = document.querySelector("#addCheck-form");
     // then display input text box
     addCheckForm.removeAttribute("hidden");
 
