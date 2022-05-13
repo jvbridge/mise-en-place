@@ -21,6 +21,12 @@ nav {
   color: lightcoral;
 }
 
+.fa-bars {
+  color: white;
+  float: right;
+  display: none;
+}
+
 #logo {
   margin-top: 1em;
   position: absolute;
@@ -253,4 +259,28 @@ i {
 .missed-item {
   background-color: rgb(238, 238, 238);
   /* rgb(238, 238, 238) */
+}
+
+
+/* ADD MEDIA QUERIES */
+
+@media only screen and (max-width: 992px) {
+
+}
+
+@media only screen and (max-width: 800px) {
+  /* everything blocked */
+  .nav-link {
+    display: none;
+  }
+
+  .fa-bars {
+    display: block;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  /* navbar to hamburger */
+ 
 }
