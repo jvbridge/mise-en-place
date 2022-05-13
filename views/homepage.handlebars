@@ -1,91 +1,168 @@
 <body class="home-body">
-        <div class="d-flex home-row justify-content-center align-items-center">
-            <div class="col-6">
-                <div class="container home-container container-fluid bg-light text-center">
+  <div class="d-flex home-row justify-content-center align-items-center">
+    <div class="col-6">
+      <div
+        class="container home-container container-fluid bg-light text-center"
+      >
 
-                    <h1 class="app-name">Mise en Place</h1>
-                    <p class="slogan">Put everything in place
-                    </p>
-                    <img src="/assets/images/kanban.png" width="250px" height="250px">
-                    <h3>Let's Get Organized</h3>
-                    <div class="button-group">
-                        <!-- Login Button trigger modal -->
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            Login
-                        </button>
-                        <!-- Sign Up Button trigger modal -->
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#signupModal">
-                            Sign Up
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <h1 class="app-name">Mise en Place</h1>
+        <p class="slogan">Put everything in place
+        </p>
+        <img src="/assets/images/kanban.png" width="250px" height="250px" />
+        <h3>Let's Get Organized</h3>
+        <div class="button-group">
+          <!-- Login Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+          >
+            Login
+          </button>
+          <!-- Sign Up Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#signupModal"
+          >
+            Sign Up
+          </button>
         </div>
-
-   </body>
-   <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="login-modal-header">Login to Your Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="login-form">
-                        <div class="row mb-3">
-                            <label for="inputEmail" class="col-4 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="email-input" placeholder="Email">
-                            </div>
-
-                            <label for="inputPassword" class="col-4 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password-input" placeholder="Password">
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Login</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-
-    <!-- Sign Up Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signup-modal-header">Create Your Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="signup-form">
-                        <div class="row mb-3">
-
-                            <label for="inputEmail" class="col-4 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="email-input" placeholder="Email">
-                            </div>
-
-                            <label for="inputPassword" class="col-4 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password-input" placeholder="Password">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Create Account</button>
-                </div>
+</body>
+<!-- Login Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="login-modal-header">Login to Your Account</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="login-form">
+          <div class="row mb-3">
+            <label
+              for="inputEmailLogin"
+              class="col-4 col-form-label"
+            >Email</label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="email-input-login"
+                placeholder="Email"
+              />
             </div>
-        </div>
-    </div>
 
-    <script src="/assets/js/login.js"></script>
+            <label
+              for="inputPasswordLogin"
+              class="col-4 col-form-label"
+            >Password</label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                class="form-control"
+                id="password-input-login"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+        <button
+          type="button"
+          id="login-btn"
+          class="btn btn-primary"
+        >Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div
+  class="modal fade"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signup-modal-header">Create Your Account</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="signup-form">
+          <div class="row mb-3">
+
+            <label
+              for="inputEmailSignUp"
+              class="col-4 col-form-label"
+            >Email</label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="email-input-signup"
+                placeholder="Email"
+              />
+            </div>
+
+            <label
+              for="inputPasswordSign"
+              class="col-4 col-form-label"
+            >Password</label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                class="form-control"
+                id="password-input-signup"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+        <button type="button" class="btn btn-primary">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/login.js"></script>

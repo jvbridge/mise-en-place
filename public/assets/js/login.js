@@ -1,8 +1,9 @@
 async function loginFormHandler(event) {
+  console.log("login handler called");
   event.preventDefault();
 
-  const email = document.querySelector("#inputEmail").value.trim();
-  const password = document.querySelector("#inputPassword").value.trim();
+  const email = document.querySelector("#email-input-login").value.trim();
+  const password = document.querySelector("#password-input-login").value.trim();
 
   if (email && password) {
     const response = await fetch("/api/users/login", {
@@ -14,7 +15,7 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/calendar");
+      document.location.replace("/dashboard");
     } else {
       let result = await response.json();
       alert(result.message);
@@ -25,8 +26,10 @@ async function loginFormHandler(event) {
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#inputEmail").value.trim();
-  const password = document.querySelector("#inputPassword").value.trim();
+  const email = document.querySelector("#email-input-signup").value.trim();
+  const password = document
+    .querySelector("#password-input-signup")
+    .value.trim();
 
   if (email && password) {
     const response = await fetch("/api/user", {
@@ -36,14 +39,21 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/calendar");
+      document.location.replace("/dashboard");
     } else {
       alert(result.message);
     }
   }
 }
 
-document.querySelector(".login-form").addEventListener("submit", loginFormHandler);
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);
 
-document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);
+document
+  .querySelector("#login-btn")
+  .addEventListener("click", loginFormHandler);
 
+document
+  .querySelector(".signup-form")
+  .addEventListener("submit", signupFormHandler);
