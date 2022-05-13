@@ -10,9 +10,7 @@ router.get("/", authDeny, async (req, res) => {
     });
 
     if (!eventsData.length) {
-      res
-        .status(404)
-        .json(`Found no events for user id: ${req.session.userId}`);
+      res.status(200).json([]);
       return;
     }
 

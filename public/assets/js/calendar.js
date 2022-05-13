@@ -12,7 +12,7 @@ getEvents = async () => {
     headers: { "Content-Type": "application/json" },
   });
   const events = await response.json();
-  console.log("Events: ", events);
+  32;
   return events;
 };
 
@@ -20,7 +20,7 @@ renderCalendar = async () => {
   const eventsData = await getEvents();
 
   console.log("got data: ", eventsData);
-  const events = eventsData.map((event) => {
+  let events = eventsData.map((event) => {
     let ret = {
       title: event.title,
       start: event.start_date,
