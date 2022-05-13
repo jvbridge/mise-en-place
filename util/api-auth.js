@@ -1,9 +1,9 @@
 const { response } = require("express");
 
 const authRedirect = (req, res, next) => {
-  // If the user is not logged in, redirect the user to the login page
+  // If the user is not logged in, redirect the user to the home page
   if (!req.session.loggedIn) {
-    res.redirect("/login");
+    res.redirect("/");
   } else {
     // If the user is logged in proceed
     next();
