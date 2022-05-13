@@ -37,16 +37,20 @@
                 class="checklist-id-wrapper"
                 data-checklist-id="{{checklist.id}}"
               >
-                {{#each checklist.checklist_items as |item|}}
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="checklist-itemid-{{item.id}}"
-                  />
-                  <label class="form-check-label" for="flexCheckChecked">
-                  </label>
-                {{/each}}
+
+                <ul><h3>{{checklist.name}}</h3>
+                  {{#each checklist.checklist_items as |item|}}
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="checklist-item-id-{{item.id}}"
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                    </label>
+                    <li>{{item.description}}</li>
+                  {{/each}}
+                </ul>
               </div>
             {{/each}}
           </div>
@@ -62,8 +66,8 @@
           To Do:
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as |item|}}
-            <li class="list-group-item to-do-item">{{item.name}}</li>
+          {{#each to_do.checklist_items as |item|}}
+            <li class="list-group-item to-do-item">{{item.description}}</li>
           {{/each}}
         </ul>
       </div>
@@ -73,8 +77,8 @@
           Missed To Dos:
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as |item|}}
-            <li class="list-group-item missed-item">{{item.name}}</li>
+          {{#each to_do.checklist_items as |item|}}
+            <li class="list-group-item missed-item">{{item.description}}</li>
           {{/each}}
         </ul>
       </div>
