@@ -106,22 +106,37 @@ router.get("/upcoming/:id", authRedirect, async (req, res) => {
 });
 
 // Route to repeated events page (need to add helper that will determine if a route is repeating or where condition)
+// router.get("/repeated", authRedirect, async (req, res) => {
+//   try {
+//     const eventData = await Events.findAll({
+//       where: { user_id: req.session.userId },
+//       include: [{ model: RecurringPatterns, required: true }],
+//     });
+//     const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
+
+//     res.render("repeated", {
+//       repeatedEvents,
+//       logged_in: req.session,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get("/repeated", authRedirect, async (req, res) => {
   try {
-    const eventData = await Events.findAll({
-      where: { user_id: req.session.userId },
-      include: [{ model: RecurringPatterns, required: true }],
-    });
-    const repeatedEvents = eventData.map((event) => event.get({ plain: true }));
+    const eventData = await Events.findAll({});
+    const events = eventData.map((event) => event.get({ plain: true }));
 
     res.render("repeated", {
-      repeatedEvents,
+      events,
       logged_in: req.session,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 // Route to get a single repeated event and render its page
 router.get("/repeated/:id", authRedirect, async (req, res) => {

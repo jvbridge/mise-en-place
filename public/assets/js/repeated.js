@@ -1,14 +1,21 @@
-// when form-select choice equals daily
-// then removed hidden attribute
-// display all daily repeated events
-// as read only
+// when form-select option is chosen
 
-// when form-select choice equals weekly
-// then remove hidden attribute
-// display all weekly repeated events 
-// as read only
+const selectedView = document.querySelector('.form-select');
+const options = document.querySelector('option');
 
-// when form-select choice equals monthly
-// then remove hidden attribute
-// display all monthly repeated events
-// as read only
+if(options.value === "1") {
+    // display ALL repeats
+    console.log('all repeats')
+} else if (options.value === "2") {
+    // display all daily repeats
+    console.log('daily repeats')
+} else if(options.value === "3") {
+    // display all weekly repeats
+    console.log('weekly repeats')
+} else if(options.value === "4") {
+    // display monthly repeats
+    console.log('monthly repeats')
+} else {
+    console.log('No repeated events');
+}
+
