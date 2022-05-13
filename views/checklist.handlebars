@@ -11,49 +11,38 @@
           <div class="card-header dash-header card-title">
             <h5>To Do List:
               {{! ADD event listener to create input form}}
-              <a class="addCheck"><i
-                  class="fa-solid fa-plus"
-                  id="plus"
-                  aria-hidden="false"
-                ></i></a>
+              <a class="addCheck"><i class="fa-solid fa-plus" id="plus" aria-hidden="false"></i></a>
             </h5>
           </div>
           <div class="checklist-form">
 
             <div class="input-group mb-3" id="addCheck-form" hidden>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="New To Do List"
-                aria-label="checklist-item"
-                aria-describedby="button-addon2"
-                id="addInput"
-              />
+              <input type="text" class="form-control" placeholder="New To Do List" aria-label="checklist-item"
+                aria-describedby="button-addon2" id="addInput" />
               <button type="button" id="addon-btn">Add List</button>
             </div>
 
             {{#each checklists as |checklist|}}
-              <div
-                class="checklist-id-wrapper"
-                data-checklist-id="{{checklist.id}}"
-              >
+            <div class="checklist-id-wrapper" data-checklist-id="{{checklist.id}}">
 
-                <ul><h3 id="checklist-name">{{checklist.name}}</h3>
-                  {{#each checklist.checklist_items as |item|}}
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="checklist-item-id-{{item.id}}"
-                    />
-                    <label class="form-check-label" for="flexCheckChecked">{{item.description}}
-                    </label>
-                  {{/each}}
-                </ul>
-              </div>
+              <ul>
+                <h3 id="checklist-name">{{checklist.name}}</h3>
+                {{#each checklist.checklist_items as |item|}}
+                <input class="form-check-input" type="checkbox" value="" id="checklist-item-id-{{item.id}}" />
+                <label class="form-check-label" for="flexCheckChecked">{{item.description}}
+                </label>
+                {{/each}}
+              </ul>
+            </div>
 
-              <button class="add-item-btn" type="button" id="addon-btn-{{checklist.id}}">Add Item</button>
+            <button class="add-item-btn" type="button" id="addon-btn-{{checklist.id}}">Add Item</button>
             {{/each}}
+          </div>
+
+          <div class="input-group mb-3" id="addCheckItem-form" hidden>
+            <input type="text" class="form-control" placeholder="Description" aria-label="checklist-item"
+              aria-describedby="button-addon2" id="addInput" />
+            <button type="button" id="addon-btn">Add Item</button>
           </div>
 
         </div>
@@ -68,7 +57,7 @@
         </div>
         <ul class="list-group list-group-flush">
           {{#each to_do.checklist_items as |item|}}
-            <li class="list-group-item to-do-item">{{item.description}}</li>
+          <li class="list-group-item to-do-item">{{item.description}}</li>
           {{/each}}
         </ul>
       </div>
@@ -79,7 +68,7 @@
         </div>
         <ul class="list-group list-group-flush">
           {{#each to_do.checklist_items as |item|}}
-            <li class="list-group-item missed-item">{{item.description}}</li>
+          <li class="list-group-item missed-item">{{item.description}}</li>
           {{/each}}
         </ul>
       </div>

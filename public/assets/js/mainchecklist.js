@@ -20,31 +20,12 @@ const createNewCheck = document
 
     const response = await fetch(routeStr, {
       method: "POST",
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+
+      }),
     });
   });
 
-async function checkFormHandler(event) {
-  event.preventDefault();
-
-  const checkList = document.querySelector("#addInput").value.trim();
-
-  if (checkList) {
-    const response = await fetch("/api/checklist", {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (response.ok) {
-      document.location.replace("/checklist");
-    } else {
-      let result = await response.json();
-      alert(result.message);
-    }
-  }
-}
 
 async function checkFormHandler(event) {
   event.preventDefault();
@@ -67,6 +48,14 @@ async function checkFormHandler(event) {
     }
   }
 }
+
+document.querySelector(".add-item-btn").addEventListener('click', async () => {
+  const addNewItem = document.querySelector("#addCheckItem-form");
+
+  addNewItem.removeAttribute("hidden");
+  
+});
+
 
 // add edit and delete buttons ?
 
