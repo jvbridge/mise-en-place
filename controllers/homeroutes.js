@@ -143,11 +143,11 @@ router.get("/checklist", async (req, res) => {
         },
       ],
     });
-    const checklist = checklistData.map((checklist) =>
+    const checklists = checklistData.map((checklist) =>
       checklist.get({ plain: true })
     );
     res.render("checklist", {
-      checklist,
+      checklists,
       logged_in: req.session,
     });
   } catch (err) {
@@ -177,10 +177,10 @@ router.get("/checklistitems/:id", async (req, res) => {
 // Route to login
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
   }
 
-  res.render("login");
+  res.redirect("/");
 });
 
 module.exports = router;

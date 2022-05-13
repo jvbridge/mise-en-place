@@ -10,7 +10,11 @@
                     <div class="card-header dash-header card-title">
                         <h5>Upcoming</h5>
                     </div>
-
+                    <ul class="upcomingEvents">
+                        {{#each events as | event | }}
+                        <li></li>
+                        {{/each}}
+                    </ul>
 
                 </div>
             </div>
@@ -46,3 +50,5 @@
         </div>
     </div>
 </div>
+
+<script src="/assets/js/upcoming.js"></script>

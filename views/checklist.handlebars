@@ -10,29 +10,50 @@
         <div class="card-body">
           <div class="card-header dash-header card-title">
             <h5>To Do List:
-              {{!-- ADD event listener to create input form--}}
-              <a class="addCheck" onclick="newCheckForm()"><i class="fa-solid fa-plus" id="plus"></i></a>
+              {{! ADD event listener to create input form}}
+              <a class="addCheck"><i
+                  class="fa-solid fa-plus"
+                  id="plus"
+                  aria-hidden="false"
+                ></i></a>
             </h5>
           </div>
           <div class="checklist-form">
 
-            <div class="input-group mb-3" id="addCheck-form" style="display: none;">
-              <input type="text" class="form-control" placeholder="New To Do" aria-label="checklist-item"
-                aria-describedby="button-addon2" id="addInput">
+            <div class="input-group mb-3" id="addCheck-form" hidden>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="New To Do List"
+                aria-label="checklist-item"
+                aria-describedby="button-addon2"
+                id="addInput"
+              />
               <button class="add-btn" type="button" id="addon-btn">Add</button>
             </div>
 
-            <input class="form-check-input" type="checkbox" value="" id="checkbox">
-            {{!-- {{#each checklistItems as | item | }} --}}
-            <label class="form-check-label" for="flexCheckChecked">
-            </label>
-            {{!-- {{/each}} --}}
+            {{#each checklists as |checklist|}}
+              <div
+                class="checklist-id-wrapper"
+                data-checklist-id="{{checklist.id}}"
+              >
+                {{#each checklist.checklist_items as |item|}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="checklist-itemid-{{item.id}}"
+                  />
+                  <label class="form-check-label" for="flexCheckChecked">
+                  </label>
+                {{/each}}
+              </div>
+            {{/each}}
           </div>
 
         </div>
       </div>
     </div>
-
 
     <!-- To-Do Column -->
     <div class="col-3">
@@ -41,8 +62,8 @@
           To Do:
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as | item | }}
-          <li class="list-group-item to-do-item">{{item.name}}</li>
+          {{#each to_do as |item|}}
+            <li class="list-group-item to-do-item">{{item.name}}</li>
           {{/each}}
         </ul>
       </div>
@@ -52,8 +73,8 @@
           Missed To Dos:
         </div>
         <ul class="list-group list-group-flush">
-          {{#each to_do as | item | }}
-          <li class="list-group-item missed-item">{{item.name}}</li>
+          {{#each to_do as |item|}}
+            <li class="list-group-item missed-item">{{item.name}}</li>
           {{/each}}
         </ul>
       </div>
@@ -61,5 +82,4 @@
   </div>
 </div>
 
-
-<script src="/assets/js/checklist.js"></script>
+<script src="/assets/js/mainchecklist.js"></script>

@@ -9,10 +9,10 @@ const MAX_EVENTS = 10;
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await Users.bulkCreate(userdata, {
-    individualHooks: true,
-    returning: true,
-  });
+  // const users = await Users.bulkCreate(userdata, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   process.exit(0);
 };

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Users, Checklists } = require("../../models");
+const { authDeny } = require("../../util/api-auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -47,7 +48,15 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {});
+router.delete("/:id", authDeny, async (req, res) => {
+  try {
+    const userData = await Users.findByPk(req.session.userId);
+    await userData.destroy();
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post("/login", async (req, res) => {
   try {
