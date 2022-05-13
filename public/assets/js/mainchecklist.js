@@ -1,5 +1,3 @@
-
-
 // when icon clicked
 const addBtn = document
   .querySelector(".addCheck")
@@ -8,32 +6,28 @@ const addBtn = document
 
     const addCheckForm = $("addCheck-form");
     // then display input text box
-    addCheckForm.removeAttribute('hidden');
+    addCheckForm.removeAttribute("hidden");
 
     // then input is added to the list with empty checkbox
   });
 
-  
 // create new checklist item
-const createNewCheck = $('#addon-btn').addEventListener("click", function () {
-    const routeStr = "/api/checklist" + wrapper.dataset.checklist-id + "/item";
+const createNewCheck = document
+  .querySelector("#addon-btn")
+  .addEventListener("click", async function () {
+    const routeStr =
+      "/api/checklist" + wrapper.dataset.checklist - id + "/item";
 
     const response = await fetch(routeStr, {
-        method: 'POST',
-        body: JSON.stringify({})
-    })
-    
-    
-    
-});
-
-
+      method: "POST",
+      body: JSON.stringify({}),
+    });
+  });
 
 async function checkFormHandler(event) {
   event.preventDefault();
 
   const checkList = document.querySelector("#addInput").value.trim();
- 
 
   if (checkList) {
     const response = await fetch("/api/checklist", {
@@ -52,12 +46,10 @@ async function checkFormHandler(event) {
   }
 }
 
-
 async function checkFormHandler(event) {
   event.preventDefault();
 
   const checkItem = document.querySelector("#data-checklist-id").value.trim();
- 
 
   if (checkItem) {
     const response = await fetch("/api/checklist-item/", {
@@ -75,8 +67,6 @@ async function checkFormHandler(event) {
     }
   }
 }
-
-
 
 // add edit and delete buttons ?
 
