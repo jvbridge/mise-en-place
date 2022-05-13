@@ -1,67 +1,55 @@
 <header class="text-center">
-    <h3>Calendar</h3>
+  <h3>Calendar</h3>
 </header>
 
 <div class="container container-fluid">
-    <div class="row">
-        <div class="col-9 main-container">
-            <div class="card calendar-card" style="width: 100%">
-                <div class="card-body">
-                    <div class="card-header calendar-header card-title">
-                        <h5><strong>Today is:</strong> <span id="today"></span></h5>
-                    </div>
-                    <div id="calendar"></div>
-                    <a href="/addEvent"><button class="btn addToCal-btn">Add an Event
-                    </button>
-                    </a>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-9 main-container">
+      <div class="card calendar-card" style="width: 100%">
+        <div class="card-body">
+          <div class="card-header calendar-header card-title">
+            <h5><strong>Today is:</strong> <span id="today"></span></h5>
+          </div>
+          <div id="calendar"></div>
+          <a href="/addEvent"><button class="btn addToCal-btn">Add an Event
+            </button>
+          </a>
         </div>
-
-        <!-- To-Do Column -->
-        <div class="col-3">
-            <div class="card to-do-card" style="width: 100%">
-                <div class="card-header to-do-card-header">
-                    To Do:
-                    <a href="checklist.html" id="plus">
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-                </div>
-                <ul class="list-group list-group-flush">
-                    {{#each checklistItems as | item | }}
-                    <li class="list-group-item to-do-item">{{checklists.name}}</li>
-                    {{/each}}
-                </ul>
-            </div>
-
-            <div class="card to-do-card" style="width: 100%">
-                <div class="card-header missed-card-header">
-                    Missed To Dos:
-                </div>
-                <ul class="list-group list-group-flush">
-                    {{#each checklistItems as | item | }}
-                    <li class="list-group-item missed-item">{{checklists.name}}</li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <!-- To-Do Column -->
+    <div class="col-3">
+      <div class="card to-do-card" style="width: 100%">
+        <div class="card-header to-do-card-header">
+          To Do:
+          <a href="checklist.html" id="plus">
+            <i class="fa-solid fa-plus"></i>
+          </a>
+        </div>
+        <ul class="list-group list-group-flush">
+          {{#each checklistItems as |item|}}
+            <li class="list-group-item to-do-item">{{checklists.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="card to-do-card" style="width: 100%">
+        <div class="card-header missed-card-header">
+          Missed To Dos:
+        </div>
+        <ul class="list-group list-group-flush">
+          {{#each checklistItems as |item|}}
+            <li class="list-group-item missed-item">{{checklists.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<script>document.addEventListener("DOMContentLoaded", function () {
-        var calendarEl = document.getElementById("calendar");
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: "dayGridMonth",
-            selectable: "true",
-            headerToolbar: {
-                left: "prev,next today",
-                center: "title",
-                right: "dayGridMonth,timeGrid",
-            },
-        });
-        calendar.render();
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+></script>
 <script src="/assets/js/calendar.js"></script>
