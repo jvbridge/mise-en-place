@@ -29,7 +29,7 @@
                 aria-describedby="button-addon2"
                 id="addInput"
               />
-              <button class="add-btn" type="button" id="addon-btn">Add</button>
+              <button type="button" id="addon-btn">Add List</button>
             </div>
 
             {{#each checklists as |checklist|}}
@@ -38,7 +38,7 @@
                 data-checklist-id="{{checklist.id}}"
               >
 
-                <ul><h3>{{checklist.name}}</h3>
+                <ul><h3 id="checklist-name">{{checklist.name}}</h3>
                   {{#each checklist.checklist_items as |item|}}
                     <input
                       class="form-check-input checklist-item-checkbox"
@@ -47,12 +47,13 @@
                       id="checklist-item-{{item.id}}"
                       {{#if item.is_complete}}checked{{/if}}
                     />
-                    <label class="form-check-label" for="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">{{item.description}}
                     </label>
-                    <li>{{item.description}}</li>
                   {{/each}}
                 </ul>
               </div>
+
+              <button class="add-item-btn" type="button" id="addon-btn-{{checklist.id}}">Add Item</button>
             {{/each}}
           </div>
 

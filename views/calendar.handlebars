@@ -11,8 +11,8 @@
                         <h5><strong>Today is:</strong> <span id="today"></span></h5>
                     </div>
                     <div id="calendar"></div>
-                    <a href="add-event.html" id="calicon"><i class="fa-regular fa-calendar-plus fa-xl"
-                            id="calendar-icon"></i>
+                    <a href="/addEvent"><button class="btn addToCal-btn">Add an Event
+                    </button>
                     </a>
                 </div>
             </div>
@@ -50,18 +50,18 @@
 </div>
 
 <script>document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
-    selectable: "true",
-    headerToolbar: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,timeGrid",
-    },
-  });
-  calendar.render();
-});
+        var calendarEl = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: "dayGridMonth",
+            selectable: "true",
+            headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGrid",
+            },
+        });
+        calendar.render();
+    });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/assets/js/calendar.js"></script>
