@@ -62,7 +62,7 @@ You should fully be able to use the application now!
 
 ## Preview
 
-![Mise en Place Screen Shot](http://url/to/img.png)
+![Mise en Place Screen Shot](https://github.com/jvbridge/mise-en-place/blob/main/public/assets/images/MiseEnPlaceSS.png)
 
 ## Deployed Link
 
