@@ -137,6 +137,7 @@ router.get("/repeated/:id", authRedirect, async (req, res) => {
 router.get("/checklist", authRedirect, async (req, res) => {
   try {
     const checklistData = await Checklists.findAll({
+      where: { user_id: req.session.userId },
       include: [
         {
           model: ChecklistItems,
