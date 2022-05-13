@@ -3,6 +3,7 @@
 const selectedView = document.querySelector('.form-select');
 const options = document.querySelector('option');
 
+const response = await fetch("/api/repeated")
 if(options.value === "1") {
     // display ALL repeats
     console.log('all repeats')
