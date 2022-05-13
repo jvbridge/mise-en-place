@@ -177,10 +177,10 @@ router.get("/checklistitems/:id", async (req, res) => {
 // Route to login
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
   }
 
-  res.render("login");
+  res.redirect("/");
 });
 
 module.exports = router;
