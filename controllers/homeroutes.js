@@ -147,7 +147,13 @@ router.get("/checklist", authRedirect, async (req, res) => {
     const checklists = checklistData.map((checklist) =>
       checklist.get({ plain: true })
     );
+
+    const to_do = checklists.find((checklist) => checklist.name === "To Do");
+
+    console.log("Rendering checklists with the todo: ", to_do);
+
     res.render("checklist", {
+      to_do,
       checklists,
       logged_in: req.session,
     });
