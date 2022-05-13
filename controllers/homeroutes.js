@@ -141,7 +141,6 @@ router.get("/checklist", authRedirect, async (req, res) => {
       include: [
         {
           model: ChecklistItems,
-          attributes: ["description"],
         },
       ],
     });
@@ -150,8 +149,6 @@ router.get("/checklist", authRedirect, async (req, res) => {
     );
 
     const to_do = checklists.find((checklist) => checklist.name === "To Do");
-
-    console.log("Rendering checklists with the todo: ", to_do);
 
     res.render("checklist", {
       to_do,
@@ -174,6 +171,7 @@ router.get("/checklistitems/:id", async (req, res) => {
         },
       ],
     });
+
     const checklistItems = checklistData.map((checklistItem) =>
       checklistItem.get({ plain: true })
     );
