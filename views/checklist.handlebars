@@ -25,17 +25,21 @@
             {{#each checklists as |checklist|}}
             <div class="checklist-id-wrapper" data-checklist-id="{{checklist.id}}">
 
-              <ul>
-                <h3 id="checklist-name">{{checklist.name}}</h3>
-                {{#each checklist.checklist_items as |item|}}
-                <input class="form-check-input" type="checkbox" value="" id="checklist-item-id-{{item.id}}" />
-                <label class="form-check-label" for="flexCheckChecked">{{item.description}}
-                </label>
-                {{/each}}
-              </ul>
-            </div>
-
-            <button class="add-item-btn" type="button" id="addon-btn-{{checklist.id}}">Add Item</button>
+                <ul><h3 id="checklist-name">{{checklist.name}}</h3>
+                  {{#each checklist.checklist_items as |item|}}
+                    <input
+                      class="form-check-input checklist-item-checkbox"
+                      type="checkbox"
+                      value=""
+                      id="checklist-item-{{item.id}}"
+                      {{#if item.is_complete}}checked{{/if}}
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                    </label>
+                    <li>{{item.description}}</li>
+                  {{/each}}
+                </ul>
+              </div>
             {{/each}}
           </div>
 

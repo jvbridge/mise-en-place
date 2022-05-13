@@ -56,6 +56,25 @@ document.querySelector(".add-item-btn").addEventListener('click', async () => {
   
 });
 
+const checkboxToggle = async (event) => {
+  const eleId = event.target.id;
+  //get the last number from the id
+  const arrItemIndex = eleId.match(/[0-9]+$/);
+  const checkItemIndex = Number.parseInt(arrItemIndex[0]);
+  const routeStr = `/api/checklist-item/${checkItemIndex}/toggle`;
+  const response = await fetch(routeStr, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!response.ok) {
+    alert(response.message);
+  }
+};
+
+document.querySelectorAll(".checklist-item-checkbox").forEach((element) => {
+  element.addEventListener("click", checkboxToggle);
+});
 
 // add edit and delete buttons ?
 
